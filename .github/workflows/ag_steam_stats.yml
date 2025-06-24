@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: nicconike/steam-stats@master
         with:
-          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }} # Created Steam API key env var
-          STEAM_ID: ${{ vars.STEAM_ID }} # Steam ID env var
-          STEAM_CUSTOM_ID: ${{ vars.STEAM_CUSTOM_ID }} # Custom ID env var
+          STEAM_API_KEY: ${{ secrets.1AAB82D78418484AB58DEE0A9C3041F6 }} # Created Steam API key env var
+          STEAM_ID: ${{ vars.STEAM_0:1:151744454 }} # Steam ID env var
+          STEAM_CUSTOM_ID: ${{ vars.https://steamcommunity.com/id/AndryGoldmann/ }} # Custom ID env var
           WORKSHOP_STATS: True # Optional
           LOG_SCALE: True # Optional
