@@ -8,7 +8,7 @@ on:
     push:
         branches: [master]
         paths:
-            - '.github/workflows/steam-stats.yml'
+            - '.github/workflows/ag-steam-stats.yml'
             - 'api/*.py'
 
 jobs:
