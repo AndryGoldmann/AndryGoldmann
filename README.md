@@ -1,1 +1,2 @@
-# steam-stats
+<!-- Steam-Stats start -->
+<!-- Steam-Stats end -->
