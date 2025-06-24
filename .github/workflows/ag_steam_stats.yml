@@ -1,22 +1,40 @@
 name: Steam Stats
 
 on:
-  push:
-    branches: master
     schedule:
-      # Runs every Monday at 12AM IST (UTC+5:30)
-      - cron: "30 18 * * 0"
+        # Runs every Monday at 12AM IST (UTC+5:30)
+        - cron: "30 18 * * 0"
     workflow_dispatch:
+    push:
+        branches: [master]
+        paths:
+            - '.github/workflows/steam-stats.yml'
+            - 'api/*.py'
 
 jobs:
-  steam-stats:
-    name: Steam Stats
-    runs-on: ubuntu-latest
-    steps:
-      - uses: nicconike/steam-stats@master
-        with:
-          STEAM_API_KEY: ${{ secrets.1AAB82D78418484AB58DEE0A9C3041F6 }} # Created Steam API key env var
-          STEAM_ID: ${{ vars.76561198263754637 }} # Steam ID env var
-          STEAM_CUSTOM_ID: ${{ vars.https://steamcommunity.com/id/AndryGoldmann/ }} # Custom ID env var
-          WORKSHOP_STATS: True # Optional
-          LOG_SCALE: True # Optional
+    steam-stats:
+        if: |
+            github.actor != 'dependabot[bot]' &&
+            github.actor != 'github-actions[bot]' &&
+            github.actor != 'protected-auto-commits[bot]'
+        name: Steam Stats
+        runs-on: ubuntu-latest
+        concurrency: steam-stats
+        steps:
+          - name: GitHub App Token
+            uses: actions/create-github-app-token@v1
+            id: app-token
+            with:
+                app-id: ${{ secrets.APP_ID }}
+                private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+          - name: Run Steam Stats
+            uses: docker://nicconike/steam-stats:master
+            env:
+                GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+                INPUT_STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+                INPUT_STEAM_ID: ${{ vars.STEAM_ID }}
+                INPUT_STEAM_CUSTOM_ID: ${{ vars.STEAM_CUSTOM_ID }}
+                INPUT_WORKSHOP_STATS: True
+                INPUT_LOG_SCALE: True
+                GITHUB_REPOSITORY: ${{ github.repository }}
