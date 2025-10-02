@@ -22,7 +22,7 @@ jobs:
       UPDATE_OPTION: MARKDOWN
       MARKDOWN_FILE: README.md
       STEAM_OPTION: ALLTIME_AND_RECENT
-      GAMES_COUNT: 10
+      GAMES_COUNT: 20
 
     steps:
       - name: Set up Go 1.x
