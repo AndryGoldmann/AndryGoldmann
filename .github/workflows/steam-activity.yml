@@ -1,0 +1,23 @@
+# GitHub Action for updating Steam activity on your profile README
+name: Update Steam Activity
+
+on:
+  # This will run every day at midnight UTC
+  schedule:
+    - cron: "0 0 * * *"
+  # This also allows you to run it manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Update-Steam-Activity
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: YouEclipse/steam-box@master
+        with:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+          # You can change this to show more games if you like
+          GAMES_COUNT: 5
