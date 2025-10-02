@@ -1,12 +1,9 @@
-# GitHub Action for updating Steam activity on your profile README
-name: Update Steam Activity
+name: Update Steam Stats
 
 on:
-  # This will run every day at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-  # This also allows you to run it manually from the Actions tab
-  workflow_dispatch:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   update-readme:
@@ -15,10 +12,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update Steam Stats
-        uses: torresflo/steam-box-for-readme@master
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          steam_api_key: ${{ secrets.STEAM_API_KEY }}
-          steam_id: ${{ secrets.STEAM_ID }}
+          go-version: '1.21'  # Matches typical Go version for this tool
+
+      - name: Clone and build steam-box-for-readme
+        run: |
+          git clone https://github.com/torresflo/steam-box-for-readme.git
+          cd steam-box-for-readme
+          go mod download
+          go build -o steam
+          cd ..
+
+      - name: Run steam-box-for-readme
+        run: ./steam-box-for-readme/steam
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+          UPDATE_OPTION: MARKDOWN
+          MARKDOWN_FILE: README.md
           # You can change this to show more games if you like
           GAMES_COUNT: 5
