@@ -9,15 +9,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  update-readme:
+    name: Update Readme with Steam Stats
     runs-on: ubuntu-latest
-    name: Update-Steam-Activity
-
     steps:
-      - uses: actions/checkout@v3
-      - uses: nicconike/steam-stats@master
+      - uses: actions/checkout@v4
+
+      - name: Update Steam Stats
+        uses: torresflo/steam-box-for-readme@main
         with:
-          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
-          STEAM_ID: ${{ secrets.STEAM_ID }}
+          steam_api_key: ${{ secrets.STEAM_API_KEY }}
+          steam_id: ${{ secrets.STEAM_ID }}
           # You can change this to show more games if you like
           GAMES_COUNT: 5
