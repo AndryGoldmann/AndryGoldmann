@@ -1,1 +1,9 @@
-![Steam Card](https://github-readme-steam-card.vercel.app/status/?steamid=76561198263754637)
+## My Steam Games
+
+### Most Played Games
+<!-- steam-box-playtime start -->
+<!-- steam-box-playtime end -->
+
+### Recently Played Games
+<!-- steam-box-recent start -->
+<!-- steam-box-recent end -->
