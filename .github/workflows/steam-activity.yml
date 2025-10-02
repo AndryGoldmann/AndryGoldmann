@@ -15,6 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: nicconike/steam-stats@master
         with:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
