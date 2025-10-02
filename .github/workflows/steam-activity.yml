@@ -15,22 +15,23 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'  # Matches typical Go version for this tool
+          go-version: '1.14'  # Matches the project's go.mod requirement
 
-      - name: Clone and build steam-box-for-readme
+      - name: Clone and build steam-box
         run: |
-          git clone https://github.com/torresflo/steam-box-for-readme.git
-          cd steam-box-for-readme
+          git clone https://github.com/YouEclipse/steam-box.git
+          cd steam-box
           go mod download
           go build -o steam
           cd ..
 
-      - name: Run steam-box-for-readme
-        run: ./steam-box-for-readme/steam
+      - name: Run steam-box
+        run: ./steam-box/steam
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
-          UPDATE_OPTION: MARKDOWN
-          MARKDOWN_FILE: README.md
+          #APP_ID: ${{ secrets.APP_ID }}  # Optional: comma-separated game IDs
+          UPDATE_OPTION: MARKDOWN  # For README updates (playtime + recent)
+          MARKDOWN_FILE: README.md  # Targets your README.md
           # You can change this to show more games if you like
-          GAMES_COUNT: 5
+          GAMES_COUNT: 10
