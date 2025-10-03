@@ -17,10 +17,10 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-⚔️ Dota 2                           🕘 9 hrs 41 mins
+⚔️ Dota 2                           🕘 10 hrs 57 mins
 🎮 Borderlands 2                    🕘 44 hrs 50 mins
 🎮 DARK SOULS™: REMASTERED          🕘 37 hrs 29 mins
-🎮 DRACOMATON                       🕘 9 hrs 37 mins
+🎮 DRACOMATON                       🕘 10 hrs 41 mins
 🔫 Counter-Strike 2                 🕘 15 hrs 52 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
