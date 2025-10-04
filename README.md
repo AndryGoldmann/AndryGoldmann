@@ -21,7 +21,7 @@
 🎮 Borderlands 2                    🕘 44 hrs 50 mins
 🎮 DARK SOULS™: REMASTERED          🕘 37 hrs 29 mins
 🎮 DRACOMATON                       🕘 10 hrs 41 mins
-🔫 Counter-Strike 2                 🕘 15 hrs 52 mins
+🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
