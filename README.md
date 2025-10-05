@@ -19,9 +19,9 @@
 ```text
 ⚔️ Dota 2                           🕘 10 hrs 57 mins
 🎮 Borderlands 2                    🕘 44 hrs 50 mins
-🎮 DARK SOULS™: REMASTERED          🕘 37 hrs 29 mins
-🎮 DRACOMATON                       🕘 10 hrs 41 mins
+🎮 DRACOMATON                       🕘 10 hrs 47 mins
 🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
+🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 19 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
