@@ -17,9 +17,9 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-⚔️ Dota 2                           🕘 10 hrs 57 mins
+⚔️ Dota 2                           🕘 11 hrs 31 mins
 🎮 Borderlands 2                    🕘 44 hrs 50 mins
-🎮 DRACOMATON                       🕘 10 hrs 47 mins
+🎮 DRACOMATON                       🕘 11 hrs 22 mins
 🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
 🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 19 mins
 ```
