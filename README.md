@@ -28,4 +28,5 @@
 
 ## 🎮 My Xbox Activity
 
-![My Xbox Stats](xbox-stats.svg)
+<!-- XBL_STATS -->
+<!-- /XBL_STATS -->
