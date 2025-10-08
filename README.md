@@ -25,3 +25,7 @@
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
+
+## 🎮 My Xbox Activity
+
+![My Xbox Stats](xbox-stats.svg)
