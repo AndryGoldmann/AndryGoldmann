@@ -156,8 +156,9 @@ jobs:
           }
           EOF
           go mod init xbl-updater
+          go mod tidy
           go build -o xbl main.go
-          rm main.go go.mod go.sum
+          rm -f main.go go.mod go.sum
       - name: Update README with XBL stats
         run: ./xbl
       - name: Commit and push
