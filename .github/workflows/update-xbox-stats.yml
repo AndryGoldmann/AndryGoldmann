@@ -1,0 +1,22 @@
+name: Update Xbox README
+
+on:
+  schedule:
+    # Runs every 4 hours. You can change this.
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+    # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JStuve/xbl-readme@v2
+        with:
+          xbl-api-key: ${{ secrets.XBL_API_KEY }}
+          xuid: 'YOUR_XUID_HERE' # 👈 Replace with your Xbox User ID (XUID)
+          gamertag: 'YOUR_GAMERTAG_HERE' # 👈 Replace with your Gamertag
+          readme-path: './README.md' # Path to your README file
+          card-path: './xbox-stats.svg' # The generated SVG card will be saved here
+          upload-branch: 'main' # The branch to commit the changes to
