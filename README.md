@@ -26,7 +26,7 @@
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
 
-## 🎮 My Xbox Activity
+## My Xbox Activity
 
 <!-- XBL_STATS -->
 <!-- /XBL_STATS -->
