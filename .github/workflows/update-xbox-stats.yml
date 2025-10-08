@@ -15,7 +15,7 @@ jobs:
       - uses: JStuve/xbl-readme@v2
         with:
           xbl-api-key: ${{ secrets.XBL_API_KEY }}
-          xuid: 'YOUR_XUID_HERE' # 👈 Replace with your Xbox User ID (XUID)
+          xuid: ${{ secrets.XBL_XUID }} # 👈 Replace with your Xbox User ID (XUID)
           gamertag: 'YOUR_GAMERTAG_HERE' # 👈 Replace with your Gamertag
           readme-path: './README.md' # Path to your README file
           card-path: './xbox-stats.svg' # The generated SVG card will be saved here
