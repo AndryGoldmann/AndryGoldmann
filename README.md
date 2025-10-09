@@ -28,10 +28,12 @@
 
 ## My Xbox Activity
 
-<!-- xbl-leaderboard start -->
+<!-- xbl-leaderboard start -->### XBL Gamerscore Leaderboard
+- Asphalt Legends Unite: 0G
 <!-- xbl-leaderboard end -->
 
-<!-- xbl-recent start -->
+<!-- xbl-recent start -->### Recent XBL Games
+- Asphalt Legends Unite
 <!-- xbl-recent end -->
 
 <!-- XBL_STATS -->### Xbox Live Stats
