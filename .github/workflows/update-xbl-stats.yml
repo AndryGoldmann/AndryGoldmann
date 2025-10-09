@@ -41,19 +41,15 @@ jobs:
           	"net/http"
           	"os"
           	"regexp"
-          	"sort"
           	"strconv"
           	"strings"
           )
 
-          type Achievement struct {
-          	TitleId        string `json:"titleId"`
-          	Name           string `json:"name"`
-          	ProgressValue  int    `json:"progressValue"`
-          }
-
-          type AchievementsResponse struct {
-          	Achievements []Achievement `json:"achievements"`
+          type Profile struct {
+          	Id         string `json:"id"`
+          	Gamertag   string `json:"gamertag"`
+          	Gamerscore string `json:"gamerscore"`
+          	Gamerpic   string `json:"gamerPic"`
           }
 
           type ActivityItem struct {
@@ -76,75 +72,55 @@ jobs:
 
           	client := &http.Client{}
 
-          	// Fetch achievements for leaderboard
-          	reqAch, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/%s/achievements", xuid), nil)
-          	reqAch.Header.Set("X-Authorization", xblKey)
-          	respAch, err := client.Do(reqAch)
-          	var achResp AchievementsResponse
-          	topGames := make(map[string]int)  // gameName -> totalGamerscore
-          	if err == nil && respAch.StatusCode == 200 {
-          		defer respAch.Body.Close()
-          		achBody, _ := io.ReadAll(respAch.Body)
-          		fmt.Println("DEBUG - Achievements JSON:", string(achBody))  // Debug print
-          		if err := json.Unmarshal(achBody, &achResp); err == nil {
-          			for _, ach := range achResp.Achievements {
-          				topGames[ach.Name] += ach.ProgressValue
-          			}
-          		} else {
-          			fmt.Printf("XBL: Error parsing achievements: %v\n", err)
-          		}
-          	} else if err != nil {
-          		fmt.Printf("XBL: Error fetching achievements: %v\n", err)
-          	} else {
-          		fmt.Printf("XBL: Achievements API error %d\n", respAch.StatusCode)
+          	// Fetch profile
+          	req, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/account/%s", xuid), nil)
+          	req.Header.Set("X-Authorization", xblKey)
+          	resp, err := client.Do(req)
+          	if err != nil {
+          		fmt.Printf("XBL: Error fetching profile: %v\n", err)
+          		os.Exit(1)
+          	}
+          	defer resp.Body.Close()
+          	if resp.StatusCode != 200 {
+          		body, _ := io.ReadAll(resp.Body)
+          		fmt.Printf("XBL: Profile API error %d: %s\n", resp.StatusCode, string(body))
+          		os.Exit(1)
+          	}
+          	profileBody, _ := io.ReadAll(resp.Body)
+          	fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
+          	var profile Profile
+          	if err := json.Unmarshal(profileBody, &profile); err != nil {
+          		fmt.Printf("XBL: Error parsing profile: %v\n", err)
+          		os.Exit(1)
+          	}
+          	fmt.Printf("DEBUG - Parsed Gamertag: %s, Gamerscore: %s, Gamerpic: %s\n", profile.Gamertag, profile.Gamerscore, profile.Gamerpic)
+          	gamerscore, err := strconv.Atoi(profile.Gamerscore)
+          	if err != nil {
+          		gamerscore = 0
+          		fmt.Printf("XBL: Error parsing gamerscore: %v\n", err)
           	}
 
-          	// Sort top 5 games by total gamerscore
-          	var gameScores []struct {
-          		Name     string
-          		Score    int
-          	}
-          	for name, score := range topGames {
-          		gameScores = append(gameScores, struct {
-          			Name  string
-          			Score int
-          		}{Name: name, Score: score})
-          	}
-          	sort.Slice(gameScores, func(i, j int) bool { return gameScores[i].Score > gameScores[j].Score })
-          	if len(gameScores) > 5 {
-          		gameScores = gameScores[:5]
-          	}
-          	var leaderboardStr strings.Builder
-          	leaderboardStr.WriteString("### XBL Gamerscore Leaderboard\n")
-          	if len(gameScores) == 0 {
-          		leaderboardStr.WriteString("No achievements found.\n")
-          	} else {
-          		for _, gs := range gameScores {
-          			leaderboardStr.WriteString(fmt.Sprintf("- %s: %dG\n", gs.Name, gs.Score))
-          		}
-          	}
-
-          	// Fetch recent activity for recent games
-          	reqRec, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/%s/activity/recent", xuid), nil)
-          	reqRec.Header.Set("X-Authorization", xblKey)
-          	respRec, err := client.Do(reqRec)
+          	// Fetch recent activity
+          	req2, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/%s/activity/recent", xuid), nil)
+          	req2.Header.Set("X-Authorization", xblKey)
+          	resp2, err := client.Do(req2)
           	var recent RecentActivity
-          	if err == nil && respRec.StatusCode == 200 {
-          		defer respRec.Body.Close()
-          		recBody, _ := io.ReadAll(respRec.Body)
-          		fmt.Println("DEBUG - Recent Activity JSON:", string(recBody))  // Debug print
-          		if err := json.Unmarshal(recBody, &recent); err != nil {
+          	if err == nil && resp2.StatusCode == 200 {
+          		defer resp2.Body.Close()
+          		recentBody, _ := io.ReadAll(resp2.Body)
+          		fmt.Println("DEBUG - Recent Activity JSON:", string(recentBody))  // Debug print
+          		if err := json.Unmarshal(recentBody, &recent); err != nil {
           			fmt.Printf("XBL: Error parsing recent activity: %v\n", err)
           		}
           	} else if err != nil {
           		fmt.Printf("XBL: Error fetching recent activity: %v\n", err)
           	} else {
-          		fmt.Printf("XBL: Recent activity API error %d\n", respRec.StatusCode)
+          		fmt.Printf("XBL: Recent activity API error %d\n", resp2.StatusCode)
           	}
 
           	// Collect recent games (first 5 unique)
           	games := make(map[string]bool)
-          	var recentList []string
+          	var gameList []string
           	count := 0
           	for _, item := range recent.Items {
           		if count >= 5 {
@@ -153,7 +129,7 @@ jobs:
           		for _, title := range item.TitleAssociations {
           			if !games[title.Name] {
           				games[title.Name] = true
-          				recentList = append(recentList, fmt.Sprintf("- %s", title.Name))
+          				gameList = append(gameList, fmt.Sprintf("- %s", title.Name))
           				count++
           				if count >= 5 {
           					break
@@ -161,15 +137,11 @@ jobs:
           			}
           		}
           	}
-          	var recentStr strings.Builder
-          	recentStr.WriteString("### Recent XBL Games\n")
-          	if len(recentList) == 0 {
-          		recentStr.WriteString("No recent games found.\n")
-          	} else {
-          		for _, game := range recentList {
-          			recentStr.WriteString(game + "\n")
-          		}
-          	}
+
+          	gamesStr := strings.Join(gameList, "\n")
+
+          	// Format stats section
+          	stats := fmt.Sprintf("### Xbox Live Stats\n![Avatar](%s)\n**Gamerscore:** %d\n**Gamertag:** %s\n\n**Recent Games:**\n%s", profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
 
           	// Read README.md
           	readme, err := os.ReadFile("README.md")
@@ -179,13 +151,9 @@ jobs:
           	}
           	str := string(readme)
 
-          	// Replace leaderboard markers
-          	reLb := regexp.MustCompile(`(?s)<!-- xbl-leaderboard start -->.*?<!-- xbl-leaderboard end -->`)
-          	newStr := reLb.ReplaceAllString(str, `<!-- xbl-leaderboard start -->`+leaderboardStr.String()+`<!-- xbl-leaderboard end -->`)
-
-          	// Replace recent markers
-          	reRec := regexp.MustCompile(`(?s)<!-- xbl-recent start -->.*?<!-- xbl-recent end -->`)
-          	newStr = reRec.ReplaceAllString(newStr, `<!-- xbl-recent start -->`+recentStr.String()+`<!-- xbl-recent end -->`)
+          	// Replace between markers
+          	re := regexp.MustCompile(`(?s)<!-- XBL_STATS -->.*?<!-- /XBL_STATS -->`)
+          	newStr := re.ReplaceAllString(str, `<!-- XBL_STATS -->`+strings.TrimSpace(stats)+`<!-- /XBL_STATS -->`)
 
           	// Write back
           	if err := os.WriteFile("README.md", []byte(newStr), 0644); err != nil {
@@ -193,7 +161,7 @@ jobs:
           		os.Exit(1)
           	}
 
-          	fmt.Println("XBL: README updated with lists!")
+          	fmt.Println("XBL: README updated with XBL stats!")
           }
           EOF
           go mod init xbl-updater
@@ -207,5 +175,5 @@ jobs:
           git config --global user.email "bot@github.com" && git config --global user.name "XBL-Bot"
           git config --global pull.rebase false
           git diff
-          git add README.md && git commit -m "Update XBL lists" || exit 0
+          git add README.md && git commit -m "Update XBL stats" || exit 0
           git pull && git push
