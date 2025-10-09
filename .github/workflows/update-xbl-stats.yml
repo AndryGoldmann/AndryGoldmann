@@ -77,20 +77,20 @@ jobs:
           	req.Header.Set("X-Authorization", apiKey)
           	resp, err := client.Do(req)
           	if err != nil {
-          		fmt.Printf("Error fetching profile: %v\n", err)
+          		fmt.Printf("Error fetching profile: %v\\n", err)
           		os.Exit(1)
           	}
           	defer resp.Body.Close()
           	if resp.StatusCode != 200 {
           		body, _ := io.ReadAll(resp.Body)
-          		fmt.Printf("Profile API error %d: %s\n", resp.StatusCode, string(body))
+          		fmt.Printf("Profile API error %d: %s\\n", resp.StatusCode, string(body))
           		os.Exit(1)
           	}
           	profileBody, _ := io.ReadAll(resp.Body)
           	fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
           	var pr ProfileResponse
           	if err := json.Unmarshal(profileBody, &pr); err != nil {
-          		fmt.Printf("Error parsing profile: %v\n", err)
+          		fmt.Printf("Error parsing profile: %v\\n", err)
           		os.Exit(1)
           	}
           	if len(pr.ProfileUsers) == 0 {
@@ -101,7 +101,7 @@ jobs:
           	gamerscore, err := strconv.Atoi(profile.Gamerscore)
           	if err != nil {
           		gamerscore = 0
-          		fmt.Printf("Error parsing gamerscore: %v\n", err)
+          		fmt.Printf("Error parsing gamerscore: %v\\n", err)
           	}
 
           	// Fetch recent activity
@@ -114,12 +114,12 @@ jobs:
           		recentBody, _ := io.ReadAll(resp2.Body)
           		fmt.Println("DEBUG - Recent Activity JSON:", string(recentBody))  // Debug print
           		if err := json.Unmarshal(recentBody, &recent); err != nil {
-          			fmt.Printf("Error parsing recent activity: %v\n", err)
+          			fmt.Printf("Error parsing recent activity: %v\\n", err)
           		}
           	} else if err != nil {
-          		fmt.Printf("Error fetching recent activity: %v\n", err)
+          		fmt.Printf("Error fetching recent activity: %v\\n", err)
           	} else {
-          		fmt.Printf("Recent activity API error %d\n", resp2.StatusCode)
+          		fmt.Printf("Recent activity API error %d\\n", resp2.StatusCode)
           	}
 
           	// Collect recent games (first 5 unique)
@@ -142,21 +142,15 @@ jobs:
           		}
           	}
 
-          	gamesStr := strings.Join(gameList, "\n")
+          	gamesStr := strings.Join(gameList, "\\n")
 
           	// Format stats section
-          	stats := fmt.Sprintf(`### Xbox Live Stats
-![Avatar](%s)
-**Gamerscore:** %d
-**Gamertag:** %s
-
-**Recent Games:**
-%s`, profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
+          	stats := fmt.Sprintf("### Xbox Live Stats\\n![Avatar](%s)\\n**Gamerscore:** %d\\n**Gamertag:** %s\\n\\n**Recent Games:**\\n%s", profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
 
           	// Read README.md
           	readme, err := os.ReadFile("README.md")
           	if err != nil {
-          		fmt.Printf("Error reading README: %v\n", err)
+          		fmt.Printf("Error reading README: %v\\n", err)
           		os.Exit(1)
           	}
           	str := string(readme)
@@ -167,7 +161,7 @@ jobs:
 
           	// Write back
           	if err := os.WriteFile("README.md", []byte(newStr), 0644); err != nil {
-          		fmt.Printf("Error writing README: %v\n", err)
+          		fmt.Printf("Error writing README: %v\\n", err)
           		os.Exit(1)
           	}
 
