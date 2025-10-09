@@ -29,5 +29,4 @@
 ## My Xbox Activity
 
 <!-- XBL_STATS -->
-
 <!-- /XBL_STATS -->
