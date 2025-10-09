@@ -41,14 +41,19 @@ jobs:
           	"net/http"
           	"os"
           	"regexp"
+          	"strconv"
           	"strings"
           )
 
           type Profile struct {
-          	Id        string `json:"id"`
-          	Gamertag  string `json:"gamertag"`
-          	Gamerscore int   `json:"gamerscore"`
-          	Gamerpic  string `json:"gamerpic"`
+          	Id           string `json:"id"`
+          	Gamertag     string `json:"gamertag"`
+          	Gamerscore   string `json:"gamerscore"`
+          	Gamerpic     string `json:"gamerPic"`
+          }
+
+          type ProfileResponse struct {
+          	ProfileUsers []Profile `json:"profileUsers"`
           }
 
           type RecentActivity []struct {
@@ -82,21 +87,35 @@ jobs:
           		os.Exit(1)
           	}
           	profileBody, _ := io.ReadAll(resp.Body)
-          	var profile Profile
-          	if err := json.Unmarshal(profileBody, &profile); err != nil {
+          	fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
+          	var pr ProfileResponse
+          	if err := json.Unmarshal(profileBody, &pr); err != nil {
           		fmt.Printf("Error parsing profile: %v\n", err)
           		os.Exit(1)
           	}
+          	if len(pr.ProfileUsers) == 0 {
+          		fmt.Println("No profile users found")
+          		os.Exit(1)
+          	}
+          	profile := pr.ProfileUsers[0]
+          	gamerscore, err := strconv.Atoi(profile.Gamerscore)
+          	if err != nil {
+          		gamerscore = 0
+          		fmt.Printf("Error parsing gamerscore: %v\n", err)
+          	}
 
           	// Fetch recent activity
-          	req2, _ := http.NewRequest("GET", "https://xbl.io/api/v2/activity/history", nil)
+          	req2, _ := http.NewRequest("GET", "https://xbl.io/api/v2/activity/feed", nil)
           	req2.Header.Set("X-Authorization", apiKey)
           	resp2, err := client.Do(req2)
           	var recent RecentActivity
           	if err == nil && resp2.StatusCode == 200 {
           		defer resp2.Body.Close()
           		recentBody, _ := io.ReadAll(resp2.Body)
-          		json.Unmarshal(recentBody, &recent)
+          		fmt.Println("DEBUG - Recent Activity JSON:", string(recentBody))  // Debug print
+          		if err := json.Unmarshal(recentBody, &recent); err != nil {
+          			fmt.Printf("Error parsing recent activity: %v\n", err)
+          		}
           	} else if err != nil {
           		fmt.Printf("Error fetching recent activity: %v\n", err)
           	} else {
@@ -127,12 +146,12 @@ jobs:
 
           	// Format stats section
           	stats := fmt.Sprintf(`### Xbox Live Stats
-          ![Avatar](%s)
-          **Gamerscore:** %d
-          **Gamertag:** %s
+![Avatar](%s)
+**Gamerscore:** %d
+**Gamertag:** %s
 
-          **Recent Games:**
-          %s`, profile.Gamerpic, profile.Gamerscore, profile.Gamertag, gamesStr)
+**Recent Games:**
+%s`, profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
 
           	// Read README.md
           	readme, err := os.ReadFile("README.md")
