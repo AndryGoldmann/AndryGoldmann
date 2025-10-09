@@ -28,9 +28,6 @@
 
 ## My Xbox Activity
 
-<!-- XBL_STATS -->### Xbox Live Stats
-![Avatar]()
-**Gamerscore:** 0
-**Gamertag:** 
+<!-- XBL_STATS -->
 
-**Recent Games:**<!-- /XBL_STATS -->
+<!-- /XBL_STATS -->
