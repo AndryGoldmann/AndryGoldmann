@@ -46,13 +46,13 @@ jobs:
           )
 
           type ProfileResponse struct {
-          	Accounts []struct {
+          	ProfileUsers []struct {
           		Id       string `json:"id"`
           		Settings []struct {
           			Id    string `json:"id"`
           			Value string `json:"value"`
           		} `json:"settings"`
-          	} `json:"accounts"`
+          	} `json:"profileUsers"`
           }
 
           type ActivityItem struct {
@@ -94,21 +94,21 @@ jobs:
           		fmt.Printf("XBL: Error parsing profile: %v\n", err)
           		os.Exit(1)
           	}
-          	if len(pr.Accounts) == 0 {
-          		fmt.Println("XBL: No accounts found")
+          	if len(pr.ProfileUsers) == 0 {
+          		fmt.Println("XBL: No profile users found")
           		os.Exit(1)
           	}
-          	settings := pr.Accounts[0].Settings
+          	settings := pr.ProfileUsers[0].Settings
           	gamertag := ""
           	gamerscoreStr := "0"
           	gamerpic := ""
           	for _, s := range settings {
           		switch s.Id {
-          		case "gamertag":
+          		case "Gamertag":
           			gamertag = s.Value
-          		case "gamerscore":
+          		case "Gamerscore":
           			gamerscoreStr = s.Value
-          		case "gamerPic":
+          		case "GameDisplayPicRaw":
           			gamerpic = s.Value
           		}
           	}
