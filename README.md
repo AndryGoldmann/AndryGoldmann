@@ -30,5 +30,6 @@
 
 <!-- xbl-leaderboard start -->
 <!-- xbl-leaderboard end -->
+
 <!-- xbl-recent start -->
 <!-- xbl-recent end -->
