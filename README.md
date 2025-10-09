@@ -34,8 +34,7 @@
 <!-- xbl-recent start -->
 <!-- xbl-recent end -->
 
-<!-- XBL_STATS -->
-### Xbox Live Stats
+<!-- XBL_STATS -->### Xbox Live Stats
 ![Avatar](https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcS9jr0n8i7LY1tL3U7Aiafa7Q3WX1ZhjkINWJKpUbm4cAM9rqYljElTUwfXVUZ2Z2&format=png)
 **Gamerscore:** 1620
 **Gamertag:** AndryGoldman
