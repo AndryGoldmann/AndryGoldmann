@@ -30,7 +30,7 @@
 
 <!-- xbl-leaderboard start -->
 ### XBL Gamerscore Leaderboard
-- Asphalt Legends Unite: 0G, 218.4 hours
+- Asphalt Legends Unite: 218.4 hours
 <!-- xbl-leaderboard end -->
 
 <!-- xbl-recent start -->
