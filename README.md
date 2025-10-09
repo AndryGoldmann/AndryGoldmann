@@ -28,17 +28,18 @@
 
 ## My Xbox Activity
 
-<!-- xbl-leaderboard start -->### XBL Gamerscore Leaderboard
-- Asphalt Legends Unite: 0G
+<!-- xbl-leaderboard start -->
+### XBL Gamerscore Leaderboard
+- Asphalt Legends Unite: 218.4 hours
 <!-- xbl-leaderboard end -->
 
-<!-- xbl-recent start -->### Recent XBL Games
+<!-- xbl-recent start -->
+### Recent XBL Games
 - Asphalt Legends Unite
 <!-- xbl-recent end -->
 
-<!-- XBL_STATS -->### Xbox Live Stats
-![Avatar](https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcS9jr0n8i7LY1tL3U7Aiafa7Q3WX1ZhjkINWJKpUbm4cAM9rqYljElTUwfXVUZ2Z2&format=png)
-**Gamerscore:** 1620
+<!-- XBL_STATS -->
+### Xbox Live Stats
 **Gamertag:** AndryGoldman
-
-**Recent Games:**<!-- /XBL_STATS -->
+**Gamerscore:** 1620
+<!-- /XBL_STATS -->
