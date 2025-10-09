@@ -33,3 +33,6 @@
 
 <!-- xbl-recent start -->
 <!-- xbl-recent end -->
+
+<!-- XBL_STATS -->
+<!-- /XBL_STATS -->
