@@ -45,6 +45,23 @@ jobs:
           	"strings"
           )
 
+          type Profile struct {
+          	Id         string `json:"id"`
+          	Gamertag   string `json:"gamertag"`
+          	Gamerscore string `json:"gamerscore"`
+          	Gamerpic   string `json:"gamerPic"`
+          }
+
+          type ActivityItem struct {
+          	TitleAssociations []struct {
+          		Name string `json:"name"`
+          	} `json:"titleAssociations"`
+          }
+
+          type RecentActivity struct {
+          	Items []ActivityItem `json:"items"`
+          }
+
           func main() {
           	xblKey := os.Getenv("XBL_API_KEY")
           	xuid := os.Getenv("XBL_XUID")
@@ -71,23 +88,12 @@ jobs:
           	}
           	profileBody, _ := io.ReadAll(resp.Body)
           	fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
-          	var pr struct {
-          		ProfileUsers []struct {
-          			Id         string `json:"id"`
-          			Gamertag   string `json:"gamertag"`
-          			Gamerscore string `json:"gamerscore"`
-          			Gamerpic   string `json:"gamerPic"`
-          		} `json:"profileUsers"`
-          	}
-          	if err := json.Unmarshal(profileBody, &pr); err != nil {
+          	var profile Profile
+          	if err := json.Unmarshal(profileBody, &profile); err != nil {
           		fmt.Printf("XBL: Error parsing profile: %v\n", err)
           		os.Exit(1)
           	}
-          	if len(pr.ProfileUsers) == 0 {
-          		fmt.Println("XBL: No profile users found")
-          		os.Exit(1)
-          	}
-          	profile := pr.ProfileUsers[0]
+          	fmt.Printf("DEBUG - Parsed Gamertag: %s, Gamerscore: %s, Gamerpic: %s\n", profile.Gamertag, profile.Gamerscore, profile.Gamerpic)
           	gamerscore, err := strconv.Atoi(profile.Gamerscore)
           	if err != nil {
           		gamerscore = 0
@@ -95,14 +101,10 @@ jobs:
           	}
 
           	// Fetch recent activity
-          	req2, _ := http.NewRequest("GET", "https://xbl.io/api/v2/activity/feed", nil)
+          	req2, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/%s/activity/recent", xuid), nil)
           	req2.Header.Set("X-Authorization", xblKey)
           	resp2, err := client.Do(req2)
-          	var recent []struct {
-          		TitleAssociations []struct {
-          			Name string `json:"name"`
-          		} `json:"titleAssociations"`
-          	}
+          	var recent RecentActivity
           	if err == nil && resp2.StatusCode == 200 {
           		defer resp2.Body.Close()
           		recentBody, _ := io.ReadAll(resp2.Body)
@@ -120,11 +122,11 @@ jobs:
           	games := make(map[string]bool)
           	var gameList []string
           	count := 0
-          	for _, act := range recent {
+          	for _, item := range recent.Items {
           		if count >= 5 {
           			break
           		}
-          		for _, title := range act.TitleAssociations {
+          		for _, title := range item.TitleAssociations {
           			if !games[title.Name] {
           				games[title.Name] = true
           				gameList = append(gameList, fmt.Sprintf("- %s", title.Name))
