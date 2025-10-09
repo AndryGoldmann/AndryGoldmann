@@ -32,7 +32,227 @@ jobs:
       - name: Build combined updater
         run: |-
           cat > main.go << 'EOF'
-          [Paste the entire combined main.go code here—replace [Paste...] with the code above]
+          package main
+
+          import (
+          	"bytes"
+          	"context"
+          	"encoding/json"
+          	"fmt"
+          	"io"
+          	"net/http"
+          	"os"
+          	"regexp"
+          	"strconv"
+          	"strings"
+
+          	"github.com/YouEclipse/steam-box/pkg/steambox"
+          )
+
+          func main() {
+          	// Steam Logic
+          	if steamAPIKey := os.Getenv("STEAM_API_KEY"); steamAPIKey != "" {
+          		var err error
+          		steamID, _ := strconv.ParseUint(os.Getenv("STEAM_ID"), 10, 64)
+          		appIDs := os.Getenv("APP_ID")
+          		appIDList := make([]uint32, 0)
+
+          		for _, appID := range strings.Split(appIDs, ",") {
+          			appid, err := strconv.ParseUint(appID, 10, 32)
+          			if err != nil {
+          				continue
+          			}
+          			appIDList = append(appIDList, uint32(appid))
+          		}
+
+          		steamOption := "ALLTIME" // options for types of games to list: RECENT (recently played games), ALLTIME <default> (playtime of games in descending order), ALLTIME_AND_RECENT for both
+          		if os.Getenv("STEAM_OPTION") != "" {
+          			steamOption = os.Getenv("STEAM_OPTION")
+          		}
+
+          		multiLined := false // boolean for whether hours should have their own line - YES = true, NO = false
+          		if os.Getenv("MULTILINE") != "" {
+          			lineOption := os.Getenv("MULTILINE")
+          			if lineOption == "YES" {
+          				multiLined = true
+          			}
+          		}
+
+          		markdownFile := os.Getenv("MARKDOWN_FILE") // the markdown filename (e.g. MYFILE.md)
+
+          		updateAllTime := steamOption == "ALLTIME" || steamOption == "ALLTIME_AND_RECENT"
+          		updateRecent := steamOption == "RECENT" || steamOption == "ALLTIME_AND_RECENT"
+
+          		box := steambox.NewBox(steamAPIKey)
+          		ctx := context.Background()
+
+          		var (
+          			filename string
+          			lines    []string
+          		)
+
+          		if updateAllTime {
+          			filename = "🎮 Steam playtime leaderboard"
+          			lines, err = box.GetPlayTime(ctx, steamID, multiLined, appIDList...)
+          			if err != nil {
+          				panic("GetPlayTime err:" + err.Error())
+          			}
+
+          			if markdownFile != "" {
+          				content := bytes.NewBuffer(nil)
+          				content.WriteString(strings.Join(lines, "\\n"))
+
+          				start := []byte("<!-- steam-box-playtime start -->")
+          				end := []byte("<!-- steam-box-playtime end -->")
+
+          				err = box.UpdateMarkdown(ctx, filename, markdownFile, content.Bytes(), start, end)
+          				if err != nil {
+          					fmt.Println(err)
+          				}
+          				fmt.Println("updating markdown successfully on ", markdownFile)
+          			}
+          		}
+
+          		if updateRecent {
+          			filename = "🎮 Recently played Steam games"
+          			lines, err = box.GetRecentGames(ctx, steamID, multiLined)
+          			if err != nil {
+          				panic("GetRecentGames err:" + err.Error())
+          			}
+
+          			if markdownFile != "" {
+          				content := bytes.NewBuffer(nil)
+          				content.WriteString(strings.Join(lines, "\\n"))
+
+          				start := []byte("<!-- steam-box-recent start -->")
+          				end := []byte("<!-- steam-box-recent end -->")
+
+          				err = box.UpdateMarkdown(ctx, filename, markdownFile, content.Bytes(), start, end)
+          				if err != nil {
+          					fmt.Println(err)
+          				}
+          				fmt.Println("updating markdown successfully on ", markdownFile)
+          			}
+          		}
+          	}
+
+          	// XBL Logic
+          	if xblKey := os.Getenv("XBL_API_KEY"); xblKey != "" {
+          		xuid := os.Getenv("XBL_XUID")
+          		if xuid == "" {
+          			fmt.Println("XBL: Missing XBL_XUID env var")
+          			return
+          		}
+
+          		client := &http.Client{}
+
+          		// Fetch profile
+          		req, _ := http.NewRequest("GET", fmt.Sprintf("https://xbl.io/api/v2/account/%s", xuid), nil)
+          		req.Header.Set("X-Authorization", xblKey)
+          		resp, err := client.Do(req)
+          		if err != nil {
+          			fmt.Printf("XBL: Error fetching profile: %v\\n", err)
+          			return
+          		}
+          		defer resp.Body.Close()
+          		if resp.StatusCode != 200 {
+          			body, _ := io.ReadAll(resp.Body)
+          			fmt.Printf("XBL: Profile API error %d: %s\\n", resp.StatusCode, string(body))
+          			return
+          		}
+          		profileBody, _ := io.ReadAll(resp.Body)
+          		fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
+          		var pr struct {
+          			ProfileUsers []struct {
+          				Id         string `json:"id"`
+          				Gamertag   string `json:"gamertag"`
+          				Gamerscore string `json:"gamerscore"`
+          				Gamerpic   string `json:"gamerPic"`
+          			} `json:"profileUsers"`
+          		}
+          		if err := json.Unmarshal(profileBody, &pr); err != nil {
+          			fmt.Printf("XBL: Error parsing profile: %v\\n", err)
+          			return
+          		}
+          		if len(pr.ProfileUsers) == 0 {
+          			fmt.Println("XBL: No profile users found")
+          			return
+          		}
+          		profile := pr.ProfileUsers[0]
+          		gamerscore, err := strconv.Atoi(profile.Gamerscore)
+          		if err != nil {
+          			gamerscore = 0
+          			fmt.Printf("XBL: Error parsing gamerscore: %v\\n", err)
+          		}
+
+          		// Fetch recent activity
+          		req2, _ := http.NewRequest("GET", "https://xbl.io/api/v2/activity/feed", nil)
+          		req2.Header.Set("X-Authorization", xblKey)
+          		resp2, err := client.Do(req2)
+          		var recent []struct {
+          			TitleAssociations []struct {
+          				Name string `json:"name"`
+          			} `json:"titleAssociations"`
+          		}
+          		if err == nil && resp2.StatusCode == 200 {
+          			defer resp2.Body.Close()
+          			recentBody, _ := io.ReadAll(resp2.Body)
+          			fmt.Println("DEBUG - Recent Activity JSON:", string(recentBody))  // Debug print
+          			if err := json.Unmarshal(recentBody, &recent); err != nil {
+          				fmt.Printf("XBL: Error parsing recent activity: %v\\n", err)
+          			}
+          		} else if err != nil {
+          			fmt.Printf("XBL: Error fetching recent activity: %v\\n", err)
+          		} else {
+          			fmt.Printf("XBL: Recent activity API error %d\\n", resp2.StatusCode)
+          		}
+
+          		// Collect recent games (first 5 unique)
+          		games := make(map[string]bool)
+          		var gameList []string
+          		count := 0
+          		for _, act := range recent {
+          			if count >= 5 {
+          				break
+          			}
+          			for _, title := range act.TitleAssociations {
+          				if !games[title.Name] {
+          					games[title.Name] = true
+          					gameList = append(gameList, fmt.Sprintf("- %s", title.Name))
+          					count++
+          					if count >= 5 {
+          						break
+          					}
+          				}
+          			}
+          		}
+
+          		gamesStr := strings.Join(gameList, "\\n")
+
+          		// Format stats section
+          		stats := fmt.Sprintf("### Xbox Live Stats\\n![Avatar](%s)\\n**Gamerscore:** %d\\n**Gamertag:** %s\\n\\n**Recent Games:**\\n%s", profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
+
+          		// Read README.md
+          		readme, err := os.ReadFile("README.md")
+          		if err != nil {
+          			fmt.Printf("XBL: Error reading README: %v\\n", err)
+          			return
+          		}
+          		str := string(readme)
+
+          		// Replace between markers
+          		re := regexp.MustCompile(`(?s)<!-- XBL_STATS -->.*?<!-- /XBL_STATS -->`)
+          		newStr := re.ReplaceAllString(str, `<!-- XBL_STATS -->`+strings.TrimSpace(stats)+`<!-- /XBL_STATS -->`)
+
+          		// Write back
+          		if err := os.WriteFile("README.md", []byte(newStr), 0644); err != nil {
+          			fmt.Printf("XBL: Error writing README: %v\\n", err)
+          			return
+          		}
+
+          		fmt.Println("XBL: README updated with XBL stats!")
+          	}
+          }
           EOF
           go mod init combined-updater
           go get github.com/YouEclipse/steam-box/pkg/steambox
