@@ -28,13 +28,11 @@
 
 ## My Xbox Activity
 
-<!-- xbl-leaderboard start -->
-### XBL Gamerscore Leaderboard
-- Asphalt Legends Unite: 218.4 hours
+<!-- xbl-leaderboard start -->### XBL Gamerscore Leaderboard
+- Asphalt Legends Unite: 0G
 <!-- xbl-leaderboard end -->
 
-<!-- xbl-recent start -->
-### Recent XBL Games
+<!-- xbl-recent start -->### Recent XBL Games
 - Asphalt Legends Unite
 <!-- xbl-recent end -->
 
