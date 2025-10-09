@@ -45,11 +45,14 @@ jobs:
           	"strings"
           )
 
-          type Profile struct {
-          	Id         string `json:"id"`
-          	Gamertag   string `json:"gamertag"`
-          	Gamerscore string `json:"gamerscore"`
-          	Gamerpic   string `json:"gamerPic"`
+          type ProfileResponse struct {
+          	Accounts []struct {
+          		Id       string `json:"id"`
+          		Settings []struct {
+          			Id    string `json:"id"`
+          			Value string `json:"value"`
+          		} `json:"settings"`
+          	} `json:"accounts"`
           }
 
           type ActivityItem struct {
@@ -58,9 +61,7 @@ jobs:
           	} `json:"titleAssociations"`
           }
 
-          type RecentActivity struct {
-          	Items []ActivityItem `json:"items"`
-          }
+          type RecentActivity []ActivityItem
 
           func main() {
           	xblKey := os.Getenv("XBL_API_KEY")
@@ -88,13 +89,31 @@ jobs:
           	}
           	profileBody, _ := io.ReadAll(resp.Body)
           	fmt.Println("DEBUG - Profile JSON:", string(profileBody))  // Debug print
-          	var profile Profile
-          	if err := json.Unmarshal(profileBody, &profile); err != nil {
+          	var pr ProfileResponse
+          	if err := json.Unmarshal(profileBody, &pr); err != nil {
           		fmt.Printf("XBL: Error parsing profile: %v\n", err)
           		os.Exit(1)
           	}
-          	fmt.Printf("DEBUG - Parsed Gamertag: %s, Gamerscore: %s, Gamerpic: %s\n", profile.Gamertag, profile.Gamerscore, profile.Gamerpic)
-          	gamerscore, err := strconv.Atoi(profile.Gamerscore)
+          	if len(pr.Accounts) == 0 {
+          		fmt.Println("XBL: No accounts found")
+          		os.Exit(1)
+          	}
+          	settings := pr.Accounts[0].Settings
+          	gamertag := ""
+          	gamerscoreStr := "0"
+          	gamerpic := ""
+          	for _, s := range settings {
+          		switch s.Id {
+          		case "gamertag":
+          			gamertag = s.Value
+          		case "gamerscore":
+          			gamerscoreStr = s.Value
+          		case "gamerPic":
+          			gamerpic = s.Value
+          		}
+          	}
+          	fmt.Printf("DEBUG - Parsed Gamertag: %s, Gamerscore: %s, Gamerpic: %s\n", gamertag, gamerscoreStr, gamerpic)
+          	gamerscore, err := strconv.Atoi(gamerscoreStr)
           	if err != nil {
           		gamerscore = 0
           		fmt.Printf("XBL: Error parsing gamerscore: %v\n", err)
@@ -122,7 +141,7 @@ jobs:
           	games := make(map[string]bool)
           	var gameList []string
           	count := 0
-          	for _, item := range recent.Items {
+          	for _, item := range recent {
           		if count >= 5 {
           			break
           		}
@@ -141,7 +160,7 @@ jobs:
           	gamesStr := strings.Join(gameList, "\n")
 
           	// Format stats section
-          	stats := fmt.Sprintf("### Xbox Live Stats\n![Avatar](%s)\n**Gamerscore:** %d\n**Gamertag:** %s\n\n**Recent Games:**\n%s", profile.Gamerpic, gamerscore, profile.Gamertag, gamesStr)
+          	stats := fmt.Sprintf("### Xbox Live Stats\n![Avatar](%s)\n**Gamerscore:** %d\n**Gamertag:** %s\n\n**Recent Games:**\n%s", gamerpic, gamerscore, gamertag, gamesStr)
 
           	// Read README.md
           	readme, err := os.ReadFile("README.md")
