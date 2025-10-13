@@ -18,9 +18,9 @@
 🎮 Recently played Steam games
 ```text
 ⚔️ Dota 2                           🕘 11 hrs 31 mins
-🎮 Borderlands 2                    🕘 46 hrs 20 mins
 🎮 DRACOMATON                       🕘 12 hrs 23 mins
-🎮 DOOM Eternal                     🕘 3 hrs 31 mins
+🎮 DOOM Eternal                     🕘 4 hrs 33 mins
+🎮 Borderlands 2                    🕘 46 hrs 20 mins
 🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
