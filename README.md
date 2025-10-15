@@ -17,11 +17,11 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 DOOM Eternal                     🕘 7 hrs 45 mins
+🎮 DOOM Eternal                     🕘 7 hrs 47 mins
 ⚔️ Dota 2                           🕘 11 hrs 31 mins
 🎮 DRACOMATON                       🕘 12 hrs 23 mins
-🎮 Borderlands 2                    🕘 46 hrs 20 mins
 🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
+🎮 Borderlands 2                    🕘 46 hrs 20 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
