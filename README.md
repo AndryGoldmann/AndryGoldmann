@@ -18,8 +18,8 @@
 🎮 Recently played Steam games
 ```text
 🎮 DOOM Eternal                     🕘 7 hrs 47 mins
-⚔️ Dota 2                           🕘 11 hrs 31 mins
 🎮 DRACOMATON                       🕘 12 hrs 23 mins
+⚔️ Dota 2                           🕘 11 hrs 31 mins
 🔫 Counter-Strike 2                 🕘 17 hrs 39 mins
 🎮 Borderlands 2                    🕘 46 hrs 20 mins
 ```
