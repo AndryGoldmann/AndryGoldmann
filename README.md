@@ -19,7 +19,6 @@
 ```text
 🎮 DOOM Eternal                     🕘 11 hrs 4 mins
 🎮 Borderlands 2                    🕘 47 hrs 5 mins
-🎮 DRACOMATON                       🕘 12 hrs 23 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
