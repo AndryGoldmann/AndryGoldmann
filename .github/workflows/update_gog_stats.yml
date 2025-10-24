@@ -1,59 +1,39 @@
-name: Update GOG Stats
+name: Update GOG Profile Table
 
-on:
-  push:
-    paths:
-      - 'my_gog_games.csv' # Triggers only when this file changes
-  workflow_dispatch: # Allows you to run it manually
+on: [push]  # Triggers on any push (e.g., when you upload/update the CSV)
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Check out the repo
 
-      - name: Install Python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.x'
 
-      - name: Install Python dependencies
-        run: pip install pandas # We use pandas to easily read the CSV
+      - name: Install dependencies
+        run: pip install pandas
 
-      - name: Run script to parse CSV and create text chunk
+      - name: Generate and Insert Table
         run: |
+          python -c "
           import pandas as pd
+          df = pd.read_csv('my_gog_games.csv')  # Your CSV file
+          if 'Playtime (minutes)' in df.columns:
+              df['Playtime (hours)'] = df['Playtime (minutes)'] / 60  # Convert if needed
+          df = df.sort_values('Playtime (hours)', ascending=False).head(20)  # Top 20 by playtime
+          md_table = df[['Name', 'Playtime (hours)', 'Genre']].to_markdown(index=False)  # Adjust columns as needed
+          with open('README.md', 'r') as f:
+              content = f.read()
+          new_content = content.replace('<!-- GOG_TABLE -->', md_table)
+          with open('README.md', 'w') as f:
+              f.write(new_content)
+          "
 
-          # Read the CSV
-          try:
-              df = pd.read_csv('my_gog_games.csv')
-          except FileNotFoundError:
-              print("CSV file not found.")
-              exit()
-
-          # Filter for games with playtime, sort, and take top 5
-          df_played = df[df['playtime'] > 0].copy()
-          df_played['playtime_hours'] = (df_played['playtime'] / 60).round(1)
-          top_5 = df_played.sort_values(by='playtime', ascending=False).head(5)
-
-          # Generate the markdown text
-          markdown_text = ""
-          for _, game in top_5.iterrows():
-              markdown_text += f"* **{game['title']}**: {game['playtime_hours']} hours\n"
-
-          if not markdown_text:
-              markdown_text = "No playtime recorded yet!"
-
-          # Save the markdown text to a file
-          with open('gog_stats.md', 'w') as f:
-              f.write(markdown_text)
-        shell: python
-
-      - name: Update README.md
-        uses: EndBug/readme-chunk-action@v2
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          target_file: 'README.md'
-          chunk_file: 'gog_stats.md'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          placeholder: 'GOG_STATS' # Matches the placeholder
+          commit_message: "Update GOG games table from CSV"
+          file_pattern: README.md
