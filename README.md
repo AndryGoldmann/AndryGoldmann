@@ -24,9 +24,10 @@
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
 
-## 🎮 My GOG Stats
+## My GOG Gaming Profile
 
-
+### Top Games by Playtime
+<!-- GOG_TABLE -->
 
 ## My Xbox Activity
 
