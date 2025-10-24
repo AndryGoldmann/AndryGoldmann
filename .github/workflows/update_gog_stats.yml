@@ -51,7 +51,7 @@ jobs:
         shell: python
 
       - name: Update README.md
-        uses: Decathlon/readme-chunk-action@master
+        uses: EndBug/readme-chunk-action@v2
         with:
           target_file: 'README.md'
           chunk_file: 'gog_stats.md'
