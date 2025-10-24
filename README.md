@@ -24,6 +24,10 @@
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
 
+## 🎮 My GOG Stats
+
+
+
 ## My Xbox Activity
 
 <!-- xbl-leaderboard start -->### XBL Gamerscore Leaderboard
@@ -39,3 +43,5 @@
 **Gamertag:** AndryGoldman
 **Gamerscore:** 1620
 <!-- /XBL_STATS -->
+
+
