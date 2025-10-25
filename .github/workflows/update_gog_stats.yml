@@ -1,39 +1,47 @@
-name: Update GOG Profile Table
+name: Update GOG Profile Table  # Workflow name: Runs on pushes to auto-update README with CSV data
 
-on: [push]  # Triggers on any push (e.g., when you upload/update the CSV)
+on: [push]  # Triggers: Fires whenever you push changes (e.g., new CSV upload)
 
 jobs:
-  update-readme:
-    runs-on: ubuntu-latest
+  update-readme:  # Job name: Handles the entire process on a virtual Ubuntu machine
+    runs-on: ubuntu-latest  # Runner: Uses GitHub's free Linux server for speed/reliability
     steps:
-      - uses: actions/checkout@v4  # Check out the repo
+      - name: Checkout repo  # Step 1: Pulls your latest code/files (including CSV and README)
+        uses: actions/checkout@v4  # Action: Official GitHub tool for cloning repo
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
+      - name: Set up Python  # Step 2: Installs Python environment for data processing
+        uses: actions/setup-python@v5  # Action: GitHub's Python installer
+        with:  # Config: Specifies Python version (3.x for pandas compatibility)
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install pandas
+      - name: Install dependencies  # Step 3: Adds pandas library for CSV handling/table creation
+        run: pip install pandas  # Command: pip installs pandas (pre-installed on runner, but explicit for reliability)
 
-      - name: Generate and Insert Table
-        run: |
-          python -c "
-          import pandas as pd
-          df = pd.read_csv('my_gog_games.csv')  # Your CSV file
-          if 'Playtime (minutes)' in df.columns:
-              df['Playtime (hours)'] = df['Playtime (minutes)'] / 60  # Convert if needed
-          df = df.sort_values('Playtime (hours)', ascending=False).head(20)  # Top 20 by playtime
-          md_table = df[['Name', 'Playtime (hours)', 'Genre']].to_markdown(index=False)  # Adjust columns as needed
-          with open('README.md', 'r') as f:
+      - name: Generate and Insert Table  # Step 4: Core logic—reads CSV, builds Markdown table, updates README
+        run: |  # Multi-line script: Runs Python code inline (no separate file needed)
+          python -c "  # Inline Python: Processes data in a single command
+          import pandas as pd  # Import: Loads pandas for DataFrames/CSV ops
+          import sys  # Import: For debug prints to Action logs
+          df = pd.read_csv('my_gog_games.csv')  # Load: Reads your CSV into a DataFrame
+          print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Logs columns (e.g., ['Name', 'Playtime (hours)', 'Genre']) for troubleshooting
+          if 'Playtime (hours)' not in df.columns:  # Check: Ensures required column exists (fails gracefully if not)
+              print('Error: No playtime column!', file=sys.stderr)
+              sys.exit(1)  # Exit: Stops workflow if CSV is malformed
+          df = df.sort_values('Playtime (hours)', ascending=False).head(20)  # Sort/Limit: Top 20 by hours, descending
+          cols = ['Name', 'Playtime (hours)']  # Base: Starts with name and hours
+          if 'Genre' in df.columns:  # Conditional: Adds Genre if present (from your updated CSV)
+              cols.append('Genre')
+          md_table = df[cols].to_markdown(index=False)  # Generate: Converts to Markdown table (no row numbers)
+          with open('README.md', 'r') as f:  # Read: Loads current README
               content = f.read()
-          new_content = content.replace('<!-- GOG_TABLE -->', md_table)
-          with open('README.md', 'w') as f:
+          new_content = content.replace('<!-- GOG_TABLE -->', md_table)  # Replace: Swaps placeholder with table
+          with open('README.md', 'w') as f:  # Write: Saves updated README
               f.write(new_content)
+          print('Table generated: Top 20 games with genres if available', file=sys.stderr)  # Debug: Confirms success
           "
 
-      - name: Commit Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update GOG games table from CSV"
-          file_pattern: README.md
+      - name: Commit Changes  # Step 5: Pushes updated README back to repo
+        uses: stefanzweifel/git-auto-commit-action@v5  # Action: Auto-commits files (avoids manual Git commands)
+        with:  # Config: Customizes commit behavior
+          commit_message: "Update GOG games table from CSV"  # Message: Clear log entry for changes
+          file_pattern: README.md  # Target: Only commits README (ignores unchanged files)
