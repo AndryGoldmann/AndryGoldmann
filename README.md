@@ -52,3 +52,29 @@
 #### playtime data from GOG Galaxy includes data from Xbox Live and Epic Games Store. 
 
 
+
+
+<!-- gog-box-playtime start -->
+| Name                                         |   Playtime (hours) | Genre                |
+|:---------------------------------------------|-------------------:|:---------------------|
+| Asphalt 9: Legends                           |             223.1  | Racing               |
+| Halo: The Master Chief Collection            |              71.48 | First-person Shooter |
+| Fallout 3: Game of the Year Edition          |              18.6  | Action RPG           |
+| Bioshock Infinite: Complete Collection       |              16.32 | First-person Shooter |
+| Horizon Chase Turbo                          |              15.68 | Racing               |
+| Team Fortress 2                              |              12.7  | First-person Shooter |
+| Guacamelee! Super Turbo Championship Edition |              10.47 | Metroidvania         |
+| Brawlhalla                                   |               9.22 | Platform Fighter     |
+| Gravity Circuit                              |               7.75 | Action Platformer    |
+| Road Redemption                              |               6.87 | Vehicular Combat     |
+| Call of Juarez: Gunslinger                   |               6.3  | First-person Shooter |
+| Doki Doki Literature Club Plus!              |               5.38 | Visual Novel         |
+| Aetherspace                                  |               4.72 | Turn-based Strategy  |
+| Castlevania Anniversary Collection           |               3.72 | Platformer           |
+| Rogue Legacy                                 |               3.57 | Roguelite Platformer |
+| Redout: Enhanced Edition                     |               3.07 | Racing               |
+| DNF Duel                                     |               2.93 | Fighting             |
+| Yu-Gi-Oh! Duel Links                         |               2.67 | Card Game            |
+| Fear the Spotlight                           |               2.05 | Horror Adventure     |
+| Cave Story+                                  |               2    | Metroidvania         |
+<!-- gog-box-playtime end -->
