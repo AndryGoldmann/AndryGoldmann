@@ -50,20 +50,5 @@
 | Fear the Spotlight                           |               2.05 | Horror Adventure     |
 | Cave Story+                                  |               2    | Metroidvania         |
 
-## My Xbox Activity
-
-<!-- xbl-leaderboard start -->### XBL Gamerscore Leaderboard
-- Asphalt Legends Unite: 0G
-<!-- xbl-leaderboard end -->
-
-<!-- xbl-recent start -->### Recent XBL Games
-- Asphalt Legends Unite
-<!-- xbl-recent end -->
-
-<!-- XBL_STATS -->
-### Xbox Live Stats
-**Gamertag:** AndryGoldman
-**Gamerscore:** 1620
-<!-- /XBL_STATS -->
 
 
