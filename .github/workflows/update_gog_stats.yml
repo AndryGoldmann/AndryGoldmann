@@ -17,13 +17,13 @@ jobs:
       - name: Install dependencies  # Step 3: Adds pandas and tabulate libraries for CSV handling/table creation
         run: pip install pandas tabulate  # Command: pip installs both (tabulate required for to_markdown())
 
-      - name: Generate and Insert Table  # Step 4: Core logic—reads CSV, builds Markdown table, updates README
+      - name: Generate and Insert Table  # Step 4: Core logic—reads CSV, builds Markdown table, updates README between start/end comments
         run: |  # Multi-line script: Runs Python code inline (no separate file needed)
           python -c "  # Inline Python: Processes data in a single command
           import pandas as pd  # Import: Loads pandas for DataFrames/CSV ops
           import sys  # Import: For debug prints to Action logs
           df = pd.read_csv('my_gog_games.csv')  # Load: Reads your CSV into a DataFrame
-          print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Logs columns (e.g., ['Name', 'Playtime (hours)', 'Genre']) for troubleshooting
+          print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Logs columns for troubleshooting
           if 'Playtime (hours)' not in df.columns:  # Check: Ensures required column exists (fails gracefully if not)
               print('Error: No playtime column!', file=sys.stderr)
               sys.exit(1)  # Exit: Stops workflow if CSV is malformed
@@ -32,9 +32,24 @@ jobs:
           if 'Genre' in df.columns:  # Conditional: Adds Genre if present (from your updated CSV)
               cols.append('Genre')
           md_table = df[cols].to_markdown(index=False)  # Generate: Converts to Markdown table (no row numbers)
+          start_marker = '<!-- gog-box-playtime start -->'  # Define: Start delimiter (like steam-box-playtime start)
+          end_marker = '<!-- gog-box-playtime end -->'  # Define: End delimiter (like steam-box-playtime end)
           with open('README.md', 'r') as f:  # Read: Loads current README
               content = f.read()
-          new_content = content.replace('<!-- GOG_TABLE -->', md_table)  # Replace: Swaps placeholder with table
+          start_idx = content.find(start_marker)  # Find: Locates start comment position
+          if start_idx == -1:  # Check: If no start marker, append table at end (fallback)
+              new_content = content + '\\n\\n' + start_marker + '\\n' + md_table + '\\n' + end_marker
+              print('No start marker found; appended table to README', file=sys.stderr)
+          else:
+              end_idx = content.find(end_marker, start_idx + len(start_marker))  # Find: Locates end comment after start
+              if end_idx == -1:  # Check: If start but no end, insert after start
+                  new_content = content[:start_idx + len(start_marker)] + '\\n' + md_table + '\\n' + end_marker + content[start_idx + len(start_marker):]
+                  print('Start marker found but no end; inserted table', file=sys.stderr)
+              else:  # Full block: Replace between start (exclusive) and end (exclusive)
+                  before = content[:start_idx + len(start_marker)]
+                  after = content[end_idx:]
+                  new_content = before + '\\n' + md_table + '\\n' + after
+                  print('Replaced existing block between markers', file=sys.stderr)
           with open('README.md', 'w') as f:  # Write: Saves updated README
               f.write(new_content)
           print('Table generated: Top 20 games with genres if available', file=sys.stderr)  # Debug: Confirms success
@@ -43,5 +58,5 @@ jobs:
       - name: Commit Changes  # Step 5: Pushes updated README back to repo
         uses: stefanzweifel/git-auto-commit-action@v5  # Action: Auto-commits files (avoids manual Git commands)
         with:  # Config: Customizes commit behavior
-          commit_message: "Update GOG games table from CSV"  # Message: Clear log entry for changes
+          commit_message: "Update GOG playtime table in README"  # Message: Clear log entry for changes
           file_pattern: README.md  # Target: Only commits README (ignores unchanged files)
