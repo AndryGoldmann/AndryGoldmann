@@ -1,77 +1,76 @@
-Name,Playtime (minutes),Playtime (hours)
-20XX,13386,223.10
-1982 (videogame),4289,71.48
-Absolute Drift,1116,18.60
-Aetherspace,979,16.32
-Alien Breed 2: Assault,941,15.68
-Alien Breed 3: Descent,762,12.70
-Alien Breed: Impact,628,10.47
-Alwa's Awakening,553,9.22
-Among Us,412,6.87
-Arma: Cold War Assault,378,6.30
-Asphalt 9: Legends,323,5.38
-Axiom Verge,283,4.72
-Bioshock Infinite: Complete Collection,223,3.72
-Brawlhalla,223,3.72
-Call of Juarez: Gunslinger,214,3.57
-Castlevania Anniversary Collection,184,3.07
-Cave Story+,176,2.93
-City of Brass,160,2.67
-Cortex Command,120,2.00
-Creature in the Well,113,1.88
-CS2D,113,1.88
-The Cycle Alpha,106,1.77
-Dandara: Trials of Fear Edition,98,1.63
-Darkwood,95,1.58
-Deponia: The Complete Journey,92,1.53
-DNF Duel,85,1.42
-Doki Doki Literature Club Plus!,84,1.40
-Echoes+,69,1.15
-Evoland Legendary Edition,64,1.07
-Fallout 3: Game of the Year Edition,61,1.02
-FlatOut,53,0.88
-Frantic Dimension,49,0.82
-Gravity Circuit,49,0.82
-Guacamelee! 2,44,0.73
-Guacamelee! Super Turbo Championship Edition,39,0.65
-Halo Infinite,35,0.58
-Halo: The Master Chief Collection,32,0.53
-Honkai: Star Rail,32,0.53
-Horizon Chase Turbo,31,0.52
-Jazz Jackrabbit 2: The Secret Files,30,0.50
-KEO,28,0.47
-Knightfall: A Daring Journey,27,0.45
-Light of Alariya,26,0.43
-Metro Last Light Redux,24,0.40
-Mordhau,24,0.40
-Nioh: The Complete Edition,23,0.38
-Offendron Warrior,19,0.32
-Outworld Battlegrounds,16,0.27
-Pink Heaven,16,0.27
-Redout: Enhanced Edition,14,0.23
-Requiem: Avenging Angel,14,0.23
-Road Redemption,13,0.22
-RoboVirus,13,0.22
-ROCKMAN X DiVE,12,0.20
-Rogue Legacy,12,0.20
-Rolling Bird,11,0.18
-Schwarzerblitz,11,0.18
-Shantae and the Pirate's Curse,10,0.17
-Slain: Back From Hell,10,0.17
-Sludge Life,9,0.15
-Sonic Mania,8,0.13
-Steel Alcimus,8,0.13
-Syberia,7,0.12
-Synthetik: Arena,7,0.12
-Tannenberg,6,0.10
-Team Fortress 2,5,0.08
-TinkerQuarry,4,0.07
-Tunche: Arena,4,0.07
-Unreal Tournament,4,0.07
-Warzone 2100,4,0.07
-Wonder Boy The Dragons Trap,3,0.05
-Worms Revolution Gold Edition,3,0.05
-Yu-Gi-Oh! Duel Links,2,0.03
-Yu-Gi-Oh!  Master Duel,2,0.03
-
-Yume Nikki,1,0.02
+Name,Playtime (minutes),Playtime (hours),Genre
+20XX,13386,223.10,Roguelike Action Platformer
+1982 (videogame),4289,71.48,Arcade Shoot 'em Up
+Absolute Drift,1116,18.60,Racing
+Aetherspace,979,16.32,Turn-based Strategy
+Alien Breed 2: Assault,941,15.68,Arcade Shooter
+Alien Breed 3: Descent,762,12.70,Arcade Shooter
+Alien Breed: Impact,628,10.47,Arcade Shooter
+Alwa's Awakening,553,9.22,Metroidvania
+Among Us,412,6.87,Social Deduction
+Arma: Cold War Assault,378,6.30,Tactical Shooter
+Asphalt 9: Legends,323,5.38,Racing
+Axiom Verge,283,4.72,Metroidvania
+Bioshock Infinite: Complete Collection,223,3.72,First-person Shooter
+Brawlhalla,223,3.72,Platform Fighter
+Call of Juarez: Gunslinger,214,3.57,First-person Shooter
+Castlevania Anniversary Collection,184,3.07,Platformer
+Cave Story+,176,2.93,Metroidvania
+City of Brass,160,2.67,Dungeon Crawler
+Cortex Command,120,2.00,Action Strategy
+Creature in the Well,113,1.88,Dungeon Crawler
+CS2D,113,1.88,
+The Cycle Alpha,106,1.77,
+Dandara: Trials of Fear Edition,98,1.63,
+Darkwood,95,1.58,
+Deponia: The Complete Journey,92,1.53,
+DNF Duel,85,1.42,
+Doki Doki Literature Club Plus!,84,1.40,
+Echoes+,69,1.15,
+Evoland Legendary Edition,64,1.07,
+Fallout 3: Game of the Year Edition,61,1.02,
+FlatOut,53,0.88,
+Frantic Dimension,49,0.82,
+Gravity Circuit,49,0.82,
+Guacamelee! 2,44,0.73,
+Guacamelee! Super Turbo Championship Edition,39,0.65,
+Halo Infinite,35,0.58,
+Halo: The Master Chief Collection,32,0.53,
+Honkai: Star Rail,32,0.53,
+Horizon Chase Turbo,31,0.52,
+Jazz Jackrabbit 2: The Secret Files,30,0.50,
+KEO,28,0.47,
+Knightfall: A Daring Journey,27,0.45,
+Light of Alariya,26,0.43,
+Metro Last Light Redux,24,0.40,
+Mordhau,24,0.40,
+Nioh: The Complete Edition,23,0.38,
+Offendron Warrior,19,0.32,
+Outworld Battlegrounds,16,0.27,
+Pink Heaven,16,0.27,
+Redout: Enhanced Edition,14,0.23,
+Requiem: Avenging Angel,14,0.23,
+Road Redemption,13,0.22,
+RoboVirus,13,0.22,
+ROCKMAN X DiVE,12,0.20,
+Rogue Legacy,12,0.20,
+Rolling Bird,11,0.18,
+Schwarzerblitz,11,0.18,
+Shantae and the Pirate's Curse,10,0.17,
+Slain: Back From Hell,10,0.17,
+Sludge Life,9,0.15,
+Sonic Mania,8,0.13,
+Steel Alcimus,8,0.13,
+Syberia,7,0.12,
+Synthetik: Arena,7,0.12,
+Tannenberg,6,0.10,
+Team Fortress 2,5,0.08,
+TinkerQuarry,4,0.07,
+Tunche: Arena,4,0.07,
+Unreal Tournament,4,0.07,
+Warzone 2100,4,0.07,
+Wonder Boy The Dragons Trap,3,0.05,
+Worms Revolution Gold Edition,3,0.05,
+Yu-Gi-Oh! Duel Links,2,0.03,
+Yu-Gi-Oh!  Master Duel,2,0.03,
+Yume Nikki,1,0.02,
