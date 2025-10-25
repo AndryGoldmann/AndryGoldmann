@@ -49,6 +49,6 @@
 | Yu-Gi-Oh! Duel Links                         |               2.67 | Card Game            |
 | Fear the Spotlight                           |               2.05 | Horror Adventure     |
 | Cave Story+                                  |               2    | Metroidvania         |
-
+#### playtime data from GOG Galaxy includes data from Xbox Live and Epic Games Store. 
 
 
