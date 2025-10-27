@@ -17,8 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
+🎮 Gunfire Reborn                   🕘 7 hrs 18 mins
 🎮 DOOM Eternal                     🕘 11 hrs 4 mins
-🎮 Gunfire Reborn                   🕘 3 hrs 48 mins
 🎮 Borderlands 2                    🕘 47 hrs 5 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
