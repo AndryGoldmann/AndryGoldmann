@@ -31,7 +31,7 @@
 <!-- gog-box-playtime start -->
 | Name                                         |   Playtime (hours) | Genre                |
 |:---------------------------------------------|-------------------:|:---------------------|
-| Asphalt 9: Legends                           |             223.1  | Racing               |
+| Asphalt Legends                              |             223.1  | Racing               |
 | Halo: The Master Chief Collection            |              71.48 | First-person Shooter |
 | Fallout 3: Game of the Year Edition          |              18.6  | Action RPG           |
 | Bioshock Infinite: Complete Collection       |              16.32 | First-person Shooter |
