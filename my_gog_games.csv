@@ -1,77 +1,71 @@
+
 Name,Playtime (minutes),Playtime (hours),Genre
-20XX,98,1.63,Roguelike Platformer
-1982 (videogame),113,1.88,Shoot 'em Up
-Absolute Drift,4,0.07,Racing
-Aetherspace,283,4.72,Turn-based Strategy
-Alien Breed 2: Assault,31,0.52,Top-down Shooter
-Alien Breed 3: Descent,4,0.07,Top-down Shooter
-Alien Breed: Impact,32,0.53,Top-down Shooter
-Alwa's Awakening,19,0.32,Metroidvania
-Among Us,84,1.40,Social Deduction
-Arma: Cold War Assault,7,0.12,Tactical Shooter
 Asphalt 9: Legends,13386,223.10,Racing
-Axiom Verge,35,0.58,Metroidvania
-Bioshock Infinite: Complete Collection,979,16.32,First-person Shooter
-Brawlhalla,553,9.22,Platform Fighter
-Call of Juarez: Gunslinger,378,6.30,First-person Shooter
-Castlevania Anniversary Collection,223,3.72,Platformer
-Cave Story+,120,2.00,Metroidvania
-City of Brass,28,0.47,Dungeon Crawler
-Cortex Command,49,0.82,Action Strategy
-Creature in the Well,64,1.07,Dungeon Crawler
-CS2D,53,0.88,2D Shooter
-The Cycle Alpha,7,0.12,Extraction Shooter
-Dandara: Trials of Fear Edition,10,0.17,Metroidvania
-Darkwood,16,0.27,Survival Horror
-Deponia: The Complete Journey,27,0.45,Point-and-click Adventure
-DNF Duel,176,2.93,Fighting
-Doki Doki Literature Club Plus!,323,5.38,Visual Novel
-Echoes+,10,0.17,Puzzle Platformer
-Evoland Legendary Edition,8,0.13,Action RPG
-Fallout 3: Game of the Year Edition,1116,18.60,Action RPG
-Fear the Spotlight,123,2.05,Horror Adventure
-FlatOut,106,1.77,Racing
-Frantic Dimension,13,0.22,Shoot 'em Up
-Gravity Circuit,465,7.75,Action Platformer
-Guacamelee! 2,23,0.38,Metroidvania
-Guacamelee! Super Turbo Championship Edition,628,10.47,Metroidvania
-Halo Infinite,26,0.43,First-person Shooter
 Halo: The Master Chief Collection,4289,71.48,First-person Shooter
-Honkai: Star Rail,2,0.03,Turn-based RPG
+Fallout 3: Game of the Year Edition,1116,18.60,Action RPG
+Bioshock Infinite: Complete Collection,979,16.32,First-person Shooter
 Horizon Chase Turbo,941,15.68,Racing
-Jazz Jackrabbit 2: The Secret Files,6,0.10,Platformer
-KEO,44,0.73,Puzzle Adventure
-Knightfall: A Daring Journey,13,0.22,Roguelike Deck-builder
-Light of Alariya,2,0.03,Action RPG
-Metro Last Light Redux,92,1.53,First-person Shooter
-Mordhau,24,0.40,Melee Combat
-Nioh: The Complete Edition,30,0.50,Action RPG
-Offendron Warrior,24,0.40,Action Adventure
-Outworld Battlegrounds,9,0.15,Battle Royale
-Pink Heaven,16,0.27,Visual Novel
-Redout: Enhanced Edition,184,3.07,Racing
-Requiem: Avenging Angel,11,0.18,First-person Shooter
+Guacamelee! Super Turbo Championship Edition,628,10.47,Metroidvania
+Gravity Circuit,465,7.75,Action Platformer
 Road Redemption,412,6.87,Vehicular Combat
-RoboVirus,4,0.07,Shoot 'em Up
-ROCKMAN X DiVE,11,0.18,Action RPG
+Call of Juarez: Gunslinger,378,6.30,First-person Shooter
+Doki Doki Literature Club Plus!,323,5.38,Visual Novel
+Fear the Spotlight,263,4.38,Horror Adventure
+Castlevania Anniversary Collection,223,3.72,Platformer
 Rogue Legacy,214,3.57,Roguelite Platformer
-Rolling Bird,32,0.53,Puzzle Platformer
-Schwarzerblitz,3,0.05,Strategy
-Shantae and the Pirate's Curse,5,0.08,Metroidvania
-Slain: Back From Hell,12,0.20,Hack and Slash
-Sludge Life,3,0.05,Exploration
+Redout: Enhanced Edition,184,3.07,Racing
+DNF Duel,176,2.93,Fighting
+Cave Story+,120,2.00,Metroidvania
+1982 (videogame),113,1.88,Shoot 'em Up
 Sonic Mania,113,1.88,Platformer
-Steel Alcimus,49,0.82,Action
-Syberia,85,1.42,Point-and-click Adventure
-Synthetik: Arena,8,0.13,Roguelite Shooter
-Tannenberg,39,0.65,First-person Shooter
-Team Fortress 2,762,12.70,First-person Shooter
+FlatOut,106,1.77,Racing
+20XX,98,1.63,Roguelike Platformer
 TinkerQuarry,95,1.58,Visual Novel
+Metro Last Light Redux,92,1.53,First-person Shooter
+Among Us,84,1.40,Social Deduction
 Tunche: Arena,69,1.15,Roguelite Action
-Unreal Tournament,14,0.23,Arena Shooter
-Warzone 2100,1,0.02,Real-time Strategy
+Creature in the Well,64,1.07,Dungeon Crawler
 Wonder Boy The Dragons Trap,61,1.02,Action RPG
+CS2D,53,0.88,2D Shooter
+Cortex Command,49,0.82,Action Strategy
+Steel Alcimus,49,0.82,Action Platformer
+KEO,44,0.73,Puzzle Adventure
+Tannenberg,39,0.65,First-person Shooter
+Axiom Verge,35,0.58,Metroidvania
+Alien Breed: Impact,32,0.53,Top-down Shooter
+Rolling Bird,32,0.53,Puzzle Platformer
+Alien Breed 2: Assault,31,0.52,Top-down Shooter
+Nioh: The Complete Edition,30,0.50,Action RPG
+City of Brass,28,0.47,Dungeon Crawler
+Deponia: The Complete Journey,27,0.45,Point-and-click Adventure
+Halo Infinite,26,0.43,First-person Shooter
+Mordhau,24,0.40,Melee Combat
+Offendron Warrior,24,0.40,Action Adventure
+Guacamelee! 2,23,0.38,Metroidvania
+Alwa's Awakening,19,0.32,Metroidvania
+Darkwood,16,0.27,Survival Horror
+Pink Heaven,16,0.27,Visual Novel
+Unreal Tournament,14,0.23,Arena Shooter
 Worms Revolution Gold Edition,14,0.23,Artillery Strategy
-Yu-Gi-Oh! Duel Links,160,2.67,Card Game
-Yu-Gi-Oh!  Master Duel,12,0.20,Card Game
+Frantic Dimension,13,0.22,Shoot 'em Up
+Knightfall: A Daring Journey,13,0.22,Roguelike Deck-builder
+Slain: Back From Hell,12,0.20,Hack and Slash
+Requiem: Avenging Angel,11,0.18,First-person Shooter
+Dandara: Trials of Fear Edition,10,0.17,Metroidvania
+Echoes+,10,0.17,Puzzle Platformer
+Outworld Battlegrounds,9,0.15,Battle Royale
+Evoland Legendary Edition,8,0.13,Action RPG
+Synthetik: Arena,8,0.13,Roguelite Shooter
+Arma: Cold War Assault,7,0.12,Tactical Shooter
+The Cycle Alpha,7,0.12,Extraction Shooter
+Jazz Jackrabbit 2: The Secret Files,6,0.10,Platformer
+Shantae and the Pirate's Curse,5,0.08,Metroidvania
+Absolute Drift,4,0.07,Racing
+Alien Breed 3: Descent,4,0.07,Top-down Shooter
+RoboVirus,4,0.07,Shoot 'em Up
 Yume Nikki,4,0.07,Exploration Adventure
+Schwarzerblitz,3,0.05,Strategy
+Sludge Life,3,0.05,Exploration
+Honkai: Star Rail,2,0.03,Turn-based RPG
+Light of Alariya,2,0.03,Action RPG
+Warzone 2100,1,0.02,Real-time Strategy
