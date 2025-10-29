@@ -5,7 +5,7 @@
 🎮 Steam playtime leaderboard
 ```text
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
-🎮 Borderlands 2                    🕘 49 hrs 49 mins
+🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 37 hrs 29 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
 🎮 American Truck Simulator         🕘 24 hrs 13 mins
@@ -18,7 +18,7 @@
 🎮 Recently played Steam games
 ```text
 🎮 Gunfire Reborn                   🕘 8 hrs 3 mins
-🎮 Borderlands 2                    🕘 49 hrs 49 mins
+🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DOOM Eternal                     🕘 11 hrs 4 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
