@@ -35,7 +35,7 @@ jobs:
         # Inline Python command: Executes the following Python code as a string. This approach keeps everything within the YAML file.
           import pandas as pd  # Import: Brings in the pandas library, aliased as 'pd', for reading CSV files and manipulating data in DataFrames.
           import sys  # Import: Imports the sys module for accessing system-specific parameters, used here for printing debug messages to stderr (visible in Actions logs).
-          df = pd.read_csv('my_gog_games.csv')  # Load data: Reads the CSV file into a pandas DataFrame 'df'. Assumes the file exists in the repo root.
+          df = pd.read_csv('main/sheet/my_gog_games.csv')  # Load data: Reads the CSV file into a pandas DataFrame 'df'. Assumes the file exists in the sheet folder.
           print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Prints the CSV's column names to stderr for logging and troubleshooting in GitHub Actions.
           if 'Playtime (hours)' not in df.columns:  # Validation: Checks if the required 'Playtime (hours)' column exists in the DataFrame.
               print('Error: No playtime column!', file=sys.stderr)  
