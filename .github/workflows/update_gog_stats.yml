@@ -1,62 +1,81 @@
-name: Update GOG Profile Table  # Workflow name: Runs on pushes to auto-update README with CSV data
+# Overall Purpose: This GitHub Actions workflow automates the process of updating a README.md file in a repository
+# with a Markdown table displaying the top 20 GOG games by playtime, based on data from a CSV file ('my_gog_games.csv').
+# It triggers on every push to the repository, processes the CSV using Python, generates a sorted table (optionally including genres),
+# and inserts or replaces the table between specific HTML comment markers in the README. This keeps the README dynamically updated
+# without manual intervention, useful for profiles or showcases that display gaming stats.
 
-on: [push]  # Triggers: Fires whenever you push changes (e.g., new CSV upload)
+name: Update GOG Profile Table  # Workflow name: Defines the display name in GitHub Actions UI; describes the workflow's goal of updating a GOG games table.
+
+on: [push]  # Triggers: Specifies when the workflow runs. Here, it activates on any 'push' event to the repository,
+            # such as committing changes or uploading a new CSV file. This ensures the README updates automatically whenever data changes.
 
 jobs:
-  update-readme:  # Job name: Handles the entire process on a virtual Ubuntu machine
-    runs-on: ubuntu-latest  # Runner: Uses GitHub's free Linux server for speed/reliability
+  update-readme:  # Job name: Groups related steps under a single job called 'update-readme'. This job handles the entire update process.
+    runs-on: ubuntu-latest  # Runner: Specifies the environment where the job executes. 'ubuntu-latest' uses GitHub's latest Ubuntu Linux virtual machine,
+                            # chosen for its speed, reliability, and compatibility with Python and other tools.
+
     steps:
-      - name: Checkout repo  # Step 1: Pulls your latest code/files (including CSV and README)
-        uses: actions/checkout@v4  # Action: Official GitHub tool for cloning repo
+      - name: Checkout repo  # Step 1 name: Descriptive name for this step in the Actions log; checks out (clones) the repository.
+        uses: actions/checkout@v4  # Action: Uses GitHub's official 'checkout' action (version 4) to download the repository's code and files,
+                                   # including the CSV and README.md, making them available for subsequent steps.
 
-      - name: Set up Python  # Step 2: Installs Python environment for data processing
-        uses: actions/setup-python@v5  # Action: GitHub's Python installer
-        with:  # Config: Specifies Python version (3.x for pandas compatibility)
-          python-version: '3.x'
+      - name: Set up Python  # Step 2 name: Sets up a Python environment needed for data processing.
+        uses: actions/setup-python@v5  # Action: GitHub's official action (version 5) to install Python on the runner.
+        with:  # Configuration block: Allows specifying options for the action.
+          python-version: '3.x'  # Config: Installs the latest Python 3.x version, ensuring compatibility with libraries like pandas.
 
-      - name: Install dependencies  # Step 3: Adds pandas and tabulate libraries for CSV handling/table creation
-        run: pip install pandas tabulate  # Command: pip installs both (tabulate required for to_markdown())
+      - name: Install dependencies  # Step 3 name: Installs required Python packages for handling CSV data and generating Markdown tables.
+        run: pip install pandas tabulate  # Command: Uses pip (Python's package installer) to install 'pandas' (for data manipulation)
+                                          # and 'tabulate' (for converting DataFrames to Markdown format). This step prepares the environment for the Python script.
 
-      - name: Generate and Insert Table  # Step 4: Core logic—reads CSV, builds Markdown table, updates README between start/end comments
-        run: |  # Multi-line script: Runs Python code inline (no separate file needed)
-          python -c "  # Inline Python: Processes data in a single command
-          import pandas as pd  # Import: Loads pandas for DataFrames/CSV ops
-          import sys  # Import: For debug prints to Action logs
-          df = pd.read_csv('my_gog_games.csv')  # Load: Reads your CSV into a DataFrame
-          print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Logs columns for troubleshooting
-          if 'Playtime (hours)' not in df.columns:  # Check: Ensures required column exists (fails gracefully if not)
-              print('Error: No playtime column!', file=sys.stderr)
-              sys.exit(1)  # Exit: Stops workflow if CSV is malformed
-          df = df.sort_values('Playtime (hours)', ascending=False).head(20)  # Sort/Limit: Top 20 by hours, descending
-          cols = ['Name', 'Playtime (hours)']  # Base: Starts with name and hours
-          if 'Genre' in df.columns:  # Conditional: Adds Genre if present (from your updated CSV)
+      - name: Generate and Insert Table  # Step 4 name: The core step where the CSV is processed, a Markdown table is generated,
+                                         # and it's inserted into the README.md file between predefined markers.
+        run: |  # Multi-line script: Allows running a block of commands, here an inline Python script using 'python -c' for execution without a separate file.
+          python -c "  
+        # Inline Python command: Executes the following Python code as a string. This approach keeps everything within the YAML file.
+          import pandas as pd  # Import: Brings in the pandas library, aliased as 'pd', for reading CSV files and manipulating data in DataFrames.
+          import sys  # Import: Imports the sys module for accessing system-specific parameters, used here for printing debug messages to stderr (visible in Actions logs).
+          df = pd.read_csv('my_gog_games.csv')  # Load data: Reads the CSV file into a pandas DataFrame 'df'. Assumes the file exists in the repo root.
+          print('CSV columns:', list(df.columns), file=sys.stderr)  # Debug: Prints the CSV's column names to stderr for logging and troubleshooting in GitHub Actions.
+          if 'Playtime (hours)' not in df.columns:  # Validation: Checks if the required 'Playtime (hours)' column exists in the DataFrame.
+              print('Error: No playtime column!', file=sys.stderr)  
+              # Error handling: Logs an error message if the column is missing.
+              sys.exit(1)  # Exit: Terminates the script with an error code (1), failing the workflow step to prevent proceeding with invalid data.
+          df = df.sort_values('Playtime (hours)', ascending=False).head(20)  # Data processing: Sorts the DataFrame by 'Playtime (hours)' in descending order
+                                                                             # and selects the top 20 rows, focusing on the most played games.
+          cols = ['Name', 'Playtime (hours)']  # Column selection: Defines the base columns to include in the table ('Name' and 'Playtime (hours)').
+          if 'Genre' in df.columns:  # Conditional addition: Checks if a 'Genre' column exists and appends it to the columns list if present,
+                                     # allowing flexibility for CSV files with or without genre data.
               cols.append('Genre')
-          md_table = df[cols].to_markdown(index=False)  # Generate: Converts to Markdown table (no row numbers)
-          start_marker = '<!-- gog-box-playtime start -->'  # Define: Start delimiter (like steam-box-playtime start)
-          end_marker = '<!-- gog-box-playtime end -->'  # Define: End delimiter (like steam-box-playtime end)
-          with open('README.md', 'r') as f:  # Read: Loads current README
+          md_table = df[cols].to_markdown(index=False)  # Table generation: Creates a Markdown-formatted table from the selected columns of the DataFrame,
+                                                        # without including row indices for a cleaner output. Requires 'tabulate' installed earlier.
+          start_marker = '<!-- gog-box-playtime start -->'  # Marker definition: Sets the starting HTML comment used to identify where to insert the table in README.md.
+          end_marker = '<!-- gog-box-playtime end -->'  # Marker definition: Sets the ending HTML comment to delimit the table section.
+          with open('README.md', 'r') as f:  # File reading: Opens README.md in read mode and loads its entire content into the 'content' variable.
               content = f.read()
-          start_idx = content.find(start_marker)  # Find: Locates start comment position
-          if start_idx == -1:  # Check: If no start marker, append table at end (fallback)
+          start_idx = content.find(start_marker)  # Locate start: Finds the index position of the start marker in the content string.
+          if start_idx == -1:  # Handling no start marker: If the start marker isn't found, appends the table (with markers) to the end of the content.
               new_content = content + '\\n\\n' + start_marker + '\\n' + md_table + '\\n' + end_marker
-              print('No start marker found; appended table to README', file=sys.stderr)
+              print('No start marker found; appended table to README', file=sys.stderr)  # Debug: Logs the action taken.
           else:
-              end_idx = content.find(end_marker, start_idx + len(start_marker))  # Find: Locates end comment after start
-              if end_idx == -1:  # Check: If start but no end, insert after start
+              end_idx = content.find(end_marker, start_idx + len(start_marker))  # Locate end: Searches for the end marker starting after the start marker.
+              if end_idx == -1:  # Handling start but no end: If end marker is missing, inserts the table and end marker right after the start marker.
                   new_content = content[:start_idx + len(start_marker)] + '\\n' + md_table + '\\n' + end_marker + content[start_idx + len(start_marker):]
-                  print('Start marker found but no end; inserted table', file=sys.stderr)
-              else:  # Full block: Replace between start (exclusive) and end (exclusive)
+                  print('Start marker found but no end; inserted table', file=sys.stderr)  # Debug: Logs the action.
+              else:  # Normal replacement: If both markers exist, replaces the content between them (exclusive) with the new table.
                   before = content[:start_idx + len(start_marker)]
                   after = content[end_idx:]
                   new_content = before + '\\n' + md_table + '\\n' + after
-                  print('Replaced existing block between markers', file=sys.stderr)
-          with open('README.md', 'w') as f:  # Write: Saves updated README
+                  print('Replaced existing block between markers', file=sys.stderr)  # Debug: Logs the successful replacement.
+          with open('README.md', 'w') as f:  # File writing: Opens README.md in write mode and saves the updated content, overwriting the original.
               f.write(new_content)
-          print('Table generated: Top 20 games with genres if available', file=sys.stderr)  # Debug: Confirms success
+          print('Table generated: Top 20 games with genres if available', file=sys.stderr)  
+          # Final debug: Confirms the table was generated and inserted successfully.
           "
 
-      - name: Commit Changes  # Step 5: Pushes updated README back to repo
-        uses: stefanzweifel/git-auto-commit-action@v5  # Action: Auto-commits files (avoids manual Git commands)
-        with:  # Config: Customizes commit behavior
-          commit_message: "Update GOG playtime table in README"  # Message: Clear log entry for changes
-          file_pattern: README.md  # Target: Only commits README (ignores unchanged files)
+      - name: Commit Changes  # Step 5 name: Commits and pushes the updated README.md back to the repository.
+        uses: stefanzweifel/git-auto-commit-action@v5  # Action: Uses a third-party action (version 5) to automatically handle Git commit and push,
+                                                       # simplifying the process without needing manual Git commands in the workflow.
+        with:  # Configuration block: Customizes the auto-commit action.
+          commit_message: "Update GOG playtime table in README"  # Commit message: Sets a descriptive message for the Git commit history.
+          file_pattern: README.md  # File targeting: Specifies that only changes to README.md should be committed, ignoring other files.
