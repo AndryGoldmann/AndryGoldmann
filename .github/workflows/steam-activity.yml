@@ -1,48 +1,60 @@
-name: Update steam playtime
+# Workflow Purpose:
+# This GitHub Actions workflow automates the process of updating a README.md file in the repository
+# with the user's Steam playtime statistics. It fetches data from the Steam API using a provided API key
+# and Steam ID, generates markdown content for the top games (based on all-time and recent playtime),
+# and commits the changes back to the repository. This is useful for dynamically displaying gaming stats
+# in a GitHub profile README or similar. The workflow can be triggered by pushes, pull requests, schedules,
+# or manually.
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+name: Update steam playtime  # The name of the workflow, displayed in GitHub Actions UI.
 
-permissions:
-  contents: write  # Grants GITHUB_TOKEN write access for pushes
+on:  # Defines the events that trigger the workflow.
+  push:  # Triggers on push events.
+    branches: [main]  # Specifically for pushes to the 'main' branch.
+  pull_request:  # Triggers on pull request events.
+    branches: [main]  # For pull requests targeting the 'main' branch.
+  schedule:  # Triggers on a scheduled basis.
+    - cron: "0 0 * * *"  # Runs daily at midnight UTC (every 24 hours).
+  workflow_dispatch:  # Allows manual triggering from the GitHub UI.
 
-jobs:
-  build:
-    name: Update-steam-playtime
-    runs-on: ubuntu-latest
-    env:
-      STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
-      STEAM_ID: ${{ secrets.STEAM_ID }}
-      UPDATE_OPTION: MARKDOWN
-      MARKDOWN_FILE: README.md
-      STEAM_OPTION: ALLTIME_AND_RECENT
-      GAMES_COUNT: 20
+permissions:  # Specifies the permissions required for the workflow.
+  contents: write  # Grants the GITHUB_TOKEN write access to repository contents, needed for committing changes.
 
-    steps:
-      - name: Set up Go 1.x
-        uses: actions/setup-go@v2
+jobs:  # Defines the jobs to run in the workflow.
+  build:  # The name of the job.
+    name: Update-steam-playtime  # Display name for the job in the UI.
+    runs-on: ubuntu-latest  # Specifies the runner environment (latest Ubuntu VM).
+    env:  # Environment variables available to all steps in the job.
+      STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}  # Steam API key stored as a secret.
+      STEAM_ID: ${{ secrets.STEAM_ID }}  # Steam user ID stored as a secret.
+      UPDATE_OPTION: MARKDOWN  # Option to update in Markdown format.
+      MARKDOWN_FILE: README.md  # The file to update with the generated Markdown.
+      STEAM_OPTION: ALLTIME_AND_RECENT  # Fetches both all-time and recent playtime data.
+      GAMES_COUNT: 20  # Limits the output to the top 20 games.
+
+    steps:  # List of steps to execute in sequence.
+      - name: Set up Go 1.x  # Step to set up the Go environment.
+        uses: actions/setup-go@v2  # Uses a pre-built action to install Go.
         with:
-          go-version: ^1.14
-        id: go
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
-      - name: Clone and run steam-box
-        run: |-
-          git clone https://github.com/torresflo/steam-box-for-readme.git
-          cd steam-box-for-readme && go build -o steam ./cmd/box/main.go
-          mv ./steam ../ && cd .. && rm -rf steam-box-for-readme/
-      - name: Commit and push
-        run: |-
-          ./steam
-          git config --global user.email "bot@github.com" && git config --global user.name "Steam-Bot"
-          git config --global pull.rebase false
-          git diff
-          git add README.md && git commit -m "Update Steam playtime" || exit 0
-          git pull && git push
+          go-version: ^1.14  # Specifies Go version 1.14 or compatible.
+        id: go  # Assigns an ID to the step for potential outputs (though not used here).
+
+      - name: Check out repo  # Step to clone the repository.
+        uses: actions/checkout@v2  # Checks out the repository code to the runner.
+
+      - uses: actions/setup-go@v2  # Another setup-go step (this appears redundant, as Go is already set up in the previous step; it might be a copy-paste error).
+
+      - name: Clone and run steam-box  # Step to clone, build, and prepare the steam-box tool.
+        run: |-  # Multi-line shell script.
+          git clone https://github.com/torresflo/steam-box-for-readme.git  # Clones the steam-box repository.
+          cd steam-box-for-readme && go build -o steam ./cmd/box/main.go  # Builds the Go program into an executable named 'steam'.
+          mv ./steam ../ && cd .. && rm -rf steam-box-for-readme/  # Moves the executable to the parent directory and cleans up the cloned repo.
+
+      - name: Commit and push  # Step to run the tool and commit changes.
+        run: |-  # Multi-line shell script.
+          ./steam  # Executes the 'steam' tool, which uses the env vars to fetch Steam data and update README.md.
+          git config --global user.email "bot@github.com" && git config --global user.name "Steam-Bot"  # Configures git user for commits.
+          git config --global pull.rebase false  # Disables rebase on pull to avoid conflicts.
+          git diff  # Shows differences (for logging/debugging).
+          git add README.md && git commit -m "Update Steam playtime" || exit 0  # Adds README.md and commits if changes exist; exits gracefully if no changes.
+          git pull && git push  # Pulls latest changes (to merge if needed) and pushes the commit to the repository.
