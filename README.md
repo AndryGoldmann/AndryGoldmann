@@ -19,7 +19,6 @@
 ```text
 🎮 Gunfire Reborn                   🕘 8 hrs 3 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
-🎮 DOOM Eternal                     🕘 11 hrs 4 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
