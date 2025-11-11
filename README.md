@@ -18,7 +18,6 @@
 🎮 Recently played Steam games
 ```text
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
-🎮 Gunfire Reborn                   🕘 8 hrs 3 mins
 🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 19 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
