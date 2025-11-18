@@ -6,7 +6,7 @@
 ```text
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
-🎮 DARK SOULS™: REMASTERED          🕘 37 hrs 29 mins
+🎮 DARK SOULS™: REMASTERED          🕘 38 hrs 40 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
 🎮 American Truck Simulator         🕘 24 hrs 13 mins
 ```
@@ -17,7 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 19 mins
+🎮 DARK SOULS™: REMASTERED          🕘 38 hrs 40 mins
+⚔️ Dota 2                           🕘 11 hrs 35 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
