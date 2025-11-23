@@ -18,8 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 DARK SOULS™: REMASTERED          🕘 40 hrs 6 mins
+🎮 Wildgate                         🕘 1 hrs 46 mins
 🎮 DOOM Eternal                     🕘 12 hrs 31 mins
 ⚔️ Dota 2                           🕘 11 hrs 35 mins
+🎮 DRACOMATON                       🕘 12 hrs 24 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
