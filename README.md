@@ -17,11 +17,11 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
+🎮 Half-Life: Element 64 Demo       🕘 1 hrs 52 mins
 🎮 Wildgate                         🕘 1 hrs 46 mins
-🎮 Half-Life: Element 64 Demo       🕘 1 hrs 29 mins
 🎮 DOOM Eternal                     🕘 12 hrs 31 mins
 🎮 DARK SOULS™: REMASTERED          🕘 40 hrs 6 mins
-🎮 DRACOMATON                       🕘 12 hrs 24 mins
+🎮 Assetto Corsa                    🕘 0 hrs 0 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
