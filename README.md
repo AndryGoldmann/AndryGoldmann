@@ -18,10 +18,8 @@
 🎮 Recently played Steam games
 ```text
 🎮 Half-Life: Element 64 Demo       🕘 1 hrs 52 mins
-🎮 Wildgate                         🕘 1 hrs 46 mins
 🎮 Assetto Corsa                    🕘 1 hrs 7 mins
 λ Half-Life                         🕘 1 hrs 48 mins
-🎮 DRACOMATON                       🕘 12 hrs 24 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
