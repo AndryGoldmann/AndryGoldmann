@@ -17,8 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Half-Life: Element 64 Demo       🕘 1 hrs 52 mins
-🎮 Assetto Corsa                    🕘 1 hrs 7 mins
+🎮 Half-Life: Element 64 Demo       🕘 1 hrs 55 mins
+🎮 Assetto Corsa                    🕘 1 hrs 38 mins
 λ Half-Life                         🕘 1 hrs 48 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
