@@ -20,7 +20,6 @@
 🎮 Assetto Corsa                    🕘 1 hrs 38 mins
 🎮 Sven Co-op                       🕘 0 hrs 32 mins
 🎮 Half-Life: Element 64 Demo       🕘 1 hrs 55 mins
-λ Half-Life                         🕘 1 hrs 48 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
