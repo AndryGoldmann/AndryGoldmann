@@ -18,9 +18,7 @@
 🎮 Recently played Steam games
 ```text
 🎮 Sven Co-op                       🕘 0 hrs 32 mins
-🎮 Assetto Corsa                    🕘 1 hrs 38 mins
 🎮 COVEN Demo                       🕘 0 hrs 17 mins
-🎮 Half-Life: Element 64 Demo       🕘 1 hrs 55 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
