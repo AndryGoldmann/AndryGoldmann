@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Age of Empires II: Definitive Edition 🕘 0 hrs 56 mins
+🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 57 mins
 🎮 COVEN Demo                       🕘 0 hrs 17 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
