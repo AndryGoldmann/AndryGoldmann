@@ -19,7 +19,7 @@
 ```text
 🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 57 mins
 🎮 COVEN Demo                       🕘 0 hrs 17 mins
-🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 25 mins
+🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 29 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
