@@ -17,7 +17,6 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 57 mins
 🎮 Deus Ex: Revision                🕘 0 hrs 57 mins
 🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 29 mins
 ```
