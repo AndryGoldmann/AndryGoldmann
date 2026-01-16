@@ -18,7 +18,6 @@
 🎮 Recently played Steam games
 ```text
 🎮 Deus Ex: Revision                🕘 0 hrs 57 mins
-🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 29 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
