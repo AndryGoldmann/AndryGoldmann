@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 DOOM Eternal                     🕘 14 hrs 45 mins
+🎮 DOOM Eternal                     🕘 16 hrs 19 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
