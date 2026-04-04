@@ -19,6 +19,7 @@
 ```text
 🎮 Hotline Miami 2: Wrong Number    🕘 2 hrs 23 mins
 🎮 VRChat                           🕘 23 hrs 46 mins
+🔫 Counter-Strike 2                 🕘 18 hrs 1 mins
 🎮 Narvas                           🕘 0 hrs 8 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
