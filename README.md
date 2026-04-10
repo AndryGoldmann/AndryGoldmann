@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Grand Theft Auto V Enhanced      🕘 17 hrs 1 mins
+🎮 Grand Theft Auto V Enhanced      🕘 19 hrs 26 mins
 🎮 Hotline Miami 2: Wrong Number    🕘 2 hrs 23 mins
 🎮 VRChat                           🕘 23 hrs 46 mins
 🔫 Counter-Strike 2                 🕘 18 hrs 1 mins
