@@ -18,8 +18,8 @@
 🎮 Recently played Steam games
 ```text
 🎮 Grand Theft Auto V Enhanced      🕘 23 hrs 16 mins
-🎮 Lossless Scaling                 🕘 2 hrs 30 mins
-🎮 Parasite Mutant Demo             🕘 0 hrs 54 mins
+🎮 Lossless Scaling                 🕘 2 hrs 45 mins
+🎮 Parasite Mutant Demo             🕘 1 hrs 5 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
