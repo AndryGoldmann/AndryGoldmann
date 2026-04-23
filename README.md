@@ -8,7 +8,7 @@
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 40 hrs 6 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
-🎮 American Truck Simulator         🕘 24 hrs 13 mins
+🎮 Grand Theft Auto V Enhanced      🕘 24 hrs 27 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-playtime end -->
@@ -17,9 +17,9 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Grand Theft Auto V Enhanced      🕘 23 hrs 16 mins
+🎮 Grand Theft Auto V Enhanced      🕘 24 hrs 27 mins
 🎮 Lossless Scaling                 🕘 2 hrs 45 mins
-🎮 Parasite Mutant Demo             🕘 1 hrs 5 mins
+🎮 Parasite Mutant Demo             🕘 1 hrs 28 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
