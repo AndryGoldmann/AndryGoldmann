@@ -18,10 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 Grand Theft Auto V Enhanced      🕘 24 hrs 27 mins
-🎮 Lossless Scaling                 🕘 2 hrs 45 mins
+🎮 Brawlhalla                       🕘 10 hrs 11 mins
 🎮 Parasite Mutant Demo             🕘 1 hrs 28 mins
 🎮 Fragments In Situ: Escape Room Demo 🕘 0 hrs 12 mins
-🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 59 mins
+🎮 CRYPTARK                         🕘 2 hrs 9 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
