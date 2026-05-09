@@ -17,10 +17,11 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
+🎮 MOTORSLICE Demo                  🕘 1 hrs 11 mins
 🎮 Brawlhalla                       🕘 10 hrs 11 mins
+🎮 Kitchen Wars                     🕘 0 hrs 37 mins
+🎮 DOOM Eternal                     🕘 16 hrs 33 mins
 🎮 Fragments In Situ: Escape Room Demo 🕘 0 hrs 12 mins
-🎮 CRYPTARK                         🕘 2 hrs 9 mins
-🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 59 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
