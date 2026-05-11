@@ -8,7 +8,7 @@
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 42 hrs 35 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
-🎮 Grand Theft Auto V Enhanced      🕘 24 hrs 27 mins
+🎮 Grand Theft Auto V Enhanced      🕘 24 hrs 57 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-playtime end -->
