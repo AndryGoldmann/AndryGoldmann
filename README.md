@@ -18,9 +18,9 @@
 🎮 Recently played Steam games
 ```text
 🎮 DARK SOULS™: REMASTERED          🕘 43 hrs 28 mins
+🎮 DOOM Eternal                     🕘 18 hrs 33 mins
 🎮 Kitchen Wars                     🕘 1 hrs 38 mins
 🎮 MOTORSLICE Demo                  🕘 1 hrs 11 mins
-🎮 DOOM Eternal                     🕘 17 hrs 14 mins
 🎮 Grand Theft Auto V Enhanced      🕘 25 hrs 16 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
