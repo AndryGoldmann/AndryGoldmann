@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 DOOM Eternal                     🕘 20 hrs 54 mins
+🎮 DOOM Eternal                     🕘 23 hrs 52 mins
 🎮 DARK SOULS™: REMASTERED          🕘 43 hrs 28 mins
 🎮 Kitchen Wars                     🕘 1 hrs 38 mins
 🎮 MOTORSLICE Demo                  🕘 1 hrs 11 mins
