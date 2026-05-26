@@ -19,7 +19,6 @@
 ```text
 🎮 DOOM Eternal                     🕘 23 hrs 52 mins
 🎮 DARK SOULS™: REMASTERED          🕘 48 hrs 14 mins
-🎮 Kitchen Wars                     🕘 1 hrs 38 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
