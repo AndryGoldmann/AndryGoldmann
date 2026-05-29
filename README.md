@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 DOOM Eternal                     🕘 23 hrs 52 mins
+🎮 DOOM Eternal                     🕘 27 hrs 4 mins
 🎮 DARK SOULS™: REMASTERED          🕘 48 hrs 14 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
