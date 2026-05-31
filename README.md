@@ -6,7 +6,7 @@
 ```text
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
-🎮 DARK SOULS™: REMASTERED          🕘 48 hrs 14 mins
+🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
 🎮 Grand Theft Auto V Enhanced      🕘 25 hrs 16 mins
 ```
@@ -18,7 +18,7 @@
 🎮 Recently played Steam games
 ```text
 🎮 DOOM Eternal                     🕘 27 hrs 4 mins
-🎮 DARK SOULS™: REMASTERED          🕘 48 hrs 14 mins
+🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
 🎮 Drift86                          🕘 0 hrs 13 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
