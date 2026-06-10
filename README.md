@@ -17,8 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Kingdom Come: Deliverance        🕘 19 hrs 13 mins
-🎮 DOOM Eternal                     🕘 27 hrs 4 mins
+🎮 Kingdom Come: Deliverance        🕘 21 hrs 17 mins
+🎮 DOOM Eternal                     🕘 29 hrs 50 mins
 🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
 🎮 Drift86                          🕘 0 hrs 13 mins
 ```
