@@ -7,7 +7,7 @@
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
-🎮 Kingdom Come: Deliverance        🕘 36 hrs 56 mins
+🎮 Kingdom Come: Deliverance        🕘 41 hrs 5 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
@@ -17,9 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Kingdom Come: Deliverance        🕘 36 hrs 56 mins
+🎮 Kingdom Come: Deliverance        🕘 41 hrs 5 mins
 🎮 DOOM Eternal                     🕘 31 hrs 17 mins
-🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
