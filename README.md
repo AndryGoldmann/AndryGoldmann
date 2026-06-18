@@ -5,8 +5,8 @@
 🎮 Steam playtime leaderboard
 ```text
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
+🎮 Kingdom Come: Deliverance        🕘 54 hrs 26 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
-🎮 Kingdom Come: Deliverance        🕘 51 hrs 54 mins
 🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
 🎮 Black Mesa                       🕘 32 hrs 27 mins
 ```
@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Kingdom Come: Deliverance        🕘 51 hrs 54 mins
+🎮 Kingdom Come: Deliverance        🕘 54 hrs 26 mins
 🎮 DOOM Eternal                     🕘 31 hrs 17 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
