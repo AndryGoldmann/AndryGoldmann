@@ -19,6 +19,8 @@
 ```text
 🎮 Kingdom Come: Deliverance        🕘 54 hrs 26 mins
 🎮 DOOM Eternal                     🕘 31 hrs 17 mins
+🎮 Brawlhalla                       🕘 12 hrs 20 mins
+🎮 SurrounDead Poly Construction    🕘 0 hrs 22 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
