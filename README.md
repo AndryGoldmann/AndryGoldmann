@@ -18,7 +18,7 @@
 🎮 Recently played Steam games
 ```text
 🎮 Kingdom Come: Deliverance        🕘 68 hrs 34 mins
-🎮 THE KING OF FIGHTERS XV          🕘 4 hrs 7 mins
+🎮 THE KING OF FIGHTERS XV          🕘 4 hrs 18 mins
 🎮 MateEngine                       🕘 1 hrs 11 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
