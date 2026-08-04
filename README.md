@@ -4,7 +4,7 @@
 <!-- steam-box-playtime start -->
 🎮 Steam playtime leaderboard
 ```text
-🎮 Kingdom Come: Deliverance        🕘 68 hrs 34 mins
+🎮 Kingdom Come: Deliverance        🕘 68 hrs 35 mins
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
@@ -18,7 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 THE KING OF FIGHTERS XV          🕘 5 hrs 13 mins
-🎮 MateEngine                       🕘 1 hrs 11 mins
+🎮 MateEngine                       🕘 1 hrs 15 mins
+🎮 Arma: Cold War Assault Remastered 🕘 1 hrs 14 mins
+🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 59 mins
+🎮 DOOM Eternal                     🕘 31 hrs 17 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
