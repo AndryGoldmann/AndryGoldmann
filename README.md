@@ -18,10 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 THE KING OF FIGHTERS XV          🕘 5 hrs 13 mins
+🎮 Crysis Remastered                🕘 2 hrs 25 mins
 🎮 MateEngine                       🕘 1 hrs 15 mins
 🎮 Arma: Cold War Assault Remastered 🕘 1 hrs 14 mins
 🎮 Kingdom Come: Deliverance        🕘 68 hrs 41 mins
-🎮 Age of Empires II: Definitive Edition 🕘 1 hrs 59 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
