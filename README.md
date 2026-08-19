@@ -18,10 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 Kingdom Come: Deliverance        🕘 78 hrs 30 mins
+🎮 Arma: Cold War Assault Remastered 🕘 2 hrs 51 mins
 🎮 Crysis Remastered                🕘 2 hrs 47 mins
 🎮 VRChat                           🕘 24 hrs 26 mins
-🎮 Arma: Cold War Assault Remastered 🕘 1 hrs 14 mins
-🎮 MateEngine                       🕘 1 hrs 15 mins
+🎮 Deus Ex: Game of the Year Edition 🕘 0 hrs 29 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
