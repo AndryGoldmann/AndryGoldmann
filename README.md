@@ -17,11 +17,11 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Crysis Remastered                🕘 4 hrs 25 mins
 🎮 Arma: Cold War Assault Remastered 🕘 2 hrs 52 mins
+🎮 Crysis Remastered                🕘 4 hrs 25 mins
 🎮 Heatwarped Demo                  🕘 0 hrs 54 mins
-🎮 VRChat                           🕘 24 hrs 32 mins
 🎮 MateEngine                       🕘 1 hrs 48 mins
+🎮 THE KING OF FIGHTERS XV          🕘 5 hrs 28 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
