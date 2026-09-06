@@ -20,7 +20,6 @@
 🎮 Kingdom Come: Deliverance        🕘 81 hrs 54 mins
 🎮 THE KING OF FIGHTERS XV          🕘 6 hrs 25 mins
 🎮 MateEngine                       🕘 1 hrs 48 mins
-🎮 PEAK                             🕘 0 hrs 13 mins
 🎮 Heatwarped Demo                  🕘 0 hrs 54 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
