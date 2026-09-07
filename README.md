@@ -18,9 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 Kingdom Come: Deliverance        🕘 81 hrs 54 mins
+🎮 Lossless Scaling                 🕘 3 hrs 49 mins
 🎮 THE KING OF FIGHTERS XV          🕘 6 hrs 25 mins
 🎮 MateEngine                       🕘 1 hrs 48 mins
-🎮 Heatwarped Demo                  🕘 0 hrs 54 mins
+🎮 Crysis Remastered                🕘 4 hrs 52 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
