@@ -19,7 +19,7 @@
 ```text
 🎮 Kingdom Come: Deliverance        🕘 92 hrs 23 mins
 🎮 Dark Sector                      🕘 1 hrs 9 mins
-🎮 Crysis Remastered                🕘 5 hrs 36 mins
+🎮 Crysis Remastered                🕘 5 hrs 41 mins
 🎮 Lossless Scaling                 🕘 3 hrs 50 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
