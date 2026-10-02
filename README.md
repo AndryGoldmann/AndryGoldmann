@@ -18,9 +18,9 @@
 🎮 Recently played Steam games
 ```text
 🎮 Kingdom Come: Deliverance        🕘 93 hrs 25 mins
-🎮 Dark Sector                      🕘 1 hrs 25 mins
 🎮 Crysis Remastered                🕘 6 hrs 8 mins
 🎮 Heatwarped Demo                  🕘 1 hrs 17 mins
+🎮 Dark Sector                      🕘 1 hrs 25 mins
 🎮 Lossless Scaling                 🕘 3 hrs 50 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
