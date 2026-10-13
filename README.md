@@ -17,11 +17,11 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 SCP: Containment Breach 2        🕘 1 hrs 18 mins
+🎮 SCP: Containment Breach 2        🕘 1 hrs 31 mins
 🎮 SCP – Containment Breach         🕘 0 hrs 30 mins
-🎮 Heatwarped Demo                  🕘 1 hrs 17 mins
-🎮 Dark Sector                      🕘 1 hrs 25 mins
 🎮 Kingdom Come: Deliverance        🕘 93 hrs 36 mins
+🎮 Arma: Cold War Assault Remastered 🕘 3 hrs 1 mins
+🎮 Crysis Remastered                🕘 6 hrs 10 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
