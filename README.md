@@ -4,7 +4,7 @@
 <!-- steam-box-playtime start -->
 🎮 Steam playtime leaderboard
 ```text
-🎮 Kingdom Come: Deliverance        🕘 93 hrs 36 mins
+🎮 Kingdom Come: Deliverance        🕘 93 hrs 52 mins
 🎮 Halo: The Master Chief Collection 🕘 66 hrs 37 mins
 🎮 Borderlands 2                    🕘 52 hrs 9 mins
 🎮 DARK SOULS™: REMASTERED          🕘 49 hrs 55 mins
@@ -18,10 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 SCP: Containment Breach 2        🕘 1 hrs 31 mins
+🎮 Crysis Remastered                🕘 7 hrs 19 mins
+🎮 VRChat                           🕘 25 hrs 19 mins
 🎮 SCP – Containment Breach         🕘 0 hrs 30 mins
-🎮 Crysis Remastered                🕘 6 hrs 33 mins
-🎮 Kingdom Come: Deliverance        🕘 93 hrs 36 mins
-🎮 Arma: Cold War Assault Remastered 🕘 3 hrs 1 mins
+🎮 Kingdom Come: Deliverance        🕘 93 hrs 52 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
