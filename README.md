@@ -18,8 +18,8 @@
 🎮 Recently played Steam games
 ```text
 🎮 Kingdom Come: Deliverance        🕘 95 hrs 49 mins
+🎮 Crysis Remastered                🕘 8 hrs 29 mins
 🎮 SCP: Containment Breach 2        🕘 1 hrs 32 mins
-🎮 Crysis Remastered                🕘 7 hrs 19 mins
 🎮 VRChat                           🕘 25 hrs 19 mins
 🎮 SCP – Containment Breach         🕘 0 hrs 45 mins
 ```
