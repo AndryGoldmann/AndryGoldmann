@@ -21,7 +21,7 @@
 🎮 Kingdom Come: Deliverance        🕘 95 hrs 49 mins
 🎮 VRChat                           🕘 25 hrs 19 mins
 🎮 SCP: Secret Laboratory           🕘 0 hrs 26 mins
-🎮 SCP: Containment Breach 2        🕘 1 hrs 32 mins
+🎮 SCP – Containment Breach         🕘 0 hrs 45 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
