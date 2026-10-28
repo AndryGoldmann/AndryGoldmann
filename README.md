@@ -17,8 +17,8 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Crysis Remastered                🕘 8 hrs 29 mins
 🎮 Kingdom Come: Deliverance        🕘 95 hrs 49 mins
+🎮 Crysis Remastered                🕘 8 hrs 29 mins
 🎮 VRChat                           🕘 25 hrs 19 mins
 🎮 SCP: Secret Laboratory           🕘 0 hrs 26 mins
 🎮 SCP – Containment Breach         🕘 0 hrs 45 mins
