@@ -19,6 +19,7 @@
 ```text
 🎮 Crysis Remastered                🕘 8 hrs 58 mins
 🎮 Kingdom Come: Deliverance        🕘 96 hrs 13 mins
+🎮 Sonic Mania                      🕘 0 hrs 17 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
