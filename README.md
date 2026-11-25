@@ -18,9 +18,10 @@
 🎮 Recently played Steam games
 ```text
 🎮 Crysis Remastered                🕘 8 hrs 58 mins
-🎮 Kingdom Come: Deliverance        🕘 96 hrs 15 mins
 🎮 SCP – Containment Breach         🕘 1 hrs 5 mins
 🎮 Sonic Mania                      🕘 0 hrs 17 mins
+🎮 Casualties: Unknown Demo         🕘 0 hrs 8 mins
+🎮 Kingdom Come: Deliverance        🕘 96 hrs 15 mins
 ```
 <!-- Powered by https://github.com/torresflo/steam-box-for-readme . -->
 <!-- steam-box-recent end -->
