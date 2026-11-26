@@ -17,7 +17,7 @@
 <!-- steam-box-recent start -->
 🎮 Recently played Steam games
 ```text
-🎮 Crysis Remastered                🕘 8 hrs 58 mins
+🎮 Crysis Remastered                🕘 9 hrs 7 mins
 🎮 SCP – Containment Breach         🕘 1 hrs 5 mins
 🎮 Sonic Mania                      🕘 0 hrs 17 mins
 🎮 Casualties: Unknown Demo         🕘 0 hrs 8 mins
